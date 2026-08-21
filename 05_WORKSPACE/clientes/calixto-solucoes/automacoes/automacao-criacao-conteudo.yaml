@@ -1,48 +1,67 @@
-automation_status: draft
+automation_status: operante
 process_name: "Automação de criação de conteúdo recorrente - Calixto Soluções"
 segment: "agencia-servico-digital"
 owner: "Calixto Soluções (estrategista digital)"
-goal: "Reduzir o tempo gasto criando conteúdo (posts, roteiros, briefings) para clientes de tráfego/mkt, mantendo cadência semanal sem depender de bloco de tempo manual todo dia"
+goal: "Reduzir o tempo gasto criando conteúdo (posts, roteiros, briefings, copy de anúncios) para cada conta da carteira, mantendo cadência semanal e coerência estratégica (funil, oferta e fase de lançamento), sem depender de bloco de tempo manual todo dia"
+clients:
+  - id: "previsa"
+    name: "Previsa"
+    segment: "mentorias / lançamentos"
+    focus: "marketing de conversão para lançamentos (aquecimento, carrinho, pós-carrinho)"
+    content_cadence: "alta nas semanas de lançamento (diária), padrão nas demais (semanal)"
+    strategic_notes: "pauta e volume variam conforme o calendário de lançamento - tratar como cliente prioritário em semana de lançamento ativo"
+  - id: "seguros-planos-saude"
+    name: "Cliente de planos de saúde e seguros"
+    segment: "seguros / planos de saúde"
+    focus: "conteúdo institucional e de conversão para vendas de planos e seguros"
+    content_cadence: "semanal"
+    strategic_notes: "segmento sensível (dado de saúde) - reforçar checagem de compliance/privacidade antes de aprovação (ver data_privacy)"
+  - id: "terra-fibra"
+    name: "Terra Fibra Óptica"
+    segment: "telecom / internet fibra"
+    focus: "conteúdo de vendas e retenção para produtos de fibra óptica"
+    content_cadence: "semanal"
+    strategic_notes: "conteúdo mais comercial/local - priorizar oferta, cobertura de área e prova social"
 trigger:
   type: schedule
-  description: "Toda segunda-feira de manhã, dispara a geração do lote de conteúdo da semana para cada cliente ativo"
+  description: "Toda segunda-feira de manhã, dispara a geração do lote de conteúdo da semana para cada cliente ativo da lista `clients`; para a Previsa, o operador pode disparar lotes extras nos dias de lançamento ativo"
 inputs:
   - name: "cliente_ativo"
-    source: "planilha ou CRM com lista de clientes em contrato"
+    source: "lista `clients` deste arquivo + planilha/CRM com status de contrato"
     required: true
-    example: "Cliente X - segmento clínica odontológica"
+    example: "Previsa - mentorias/lançamentos"
   - name: "pauta_ou_tema_da_semana"
-    source: "definido manualmente ou herdado do calendário editorial do cliente"
+    source: "definido manualmente ou herdado do calendário editorial/lançamento do cliente"
     required: true
-    example: "Semana de conscientização - clareamento dental"
+    example: "Previsa: semana de aquecimento do lançamento X | Terra Fibra: campanha de nova área de cobertura"
   - name: "referencias_de_marca"
     source: "brand-profile.json / briefing do cliente"
     required: false
-    example: "tom de voz, cores, provas, CTA padrão"
+    example: "tom de voz, cores, provas, CTA padrão, ofertas vigentes"
 steps:
   - id: "S1"
     name: "Puxar lista de clientes ativos e pauta da semana"
     mode: manual
     actor: human
-    description: "Operador confirma quais clientes entram no lote da semana e a pauta de cada um"
-    tool: "planilha/CRM"
+    description: "Operador confirma, para cada cliente da lista `clients` (Previsa, seguros/planos de saúde, Terra Fibra Óptica), quais entram no lote da semana e a pauta/fase estratégica de cada um (ex.: fase de lançamento, oferta vigente)"
+    tool: "planilha/CRM + lista `clients` deste arquivo"
     input: "cliente_ativo, pauta_ou_tema_da_semana"
-    output: "lista consolidada da semana (cliente + pauta + brand-profile)"
+    output: "lista consolidada da semana (cliente + pauta + fase estratégica + brand-profile)"
     approval_required: true
   - id: "S2"
     name: "Gerar rascunho de conteúdo por cliente"
     mode: ai_assisted
     actor: ai_agent
-    description: "Claude gera copy/roteiro/carrossel por cliente, usando a lista consolidada de S1 (cliente_ativo + pauta) e o brand-profile de cada um, via skills de copy da agência"
+    description: "Claude gera copy/roteiro/carrossel/anúncio por cliente, usando a lista consolidada de S1 (cliente_ativo + pauta + fase estratégica) e o brand-profile de cada um, via skills de copy da agência - aplicando o foco estratégico específico de cada conta (lançamento para Previsa, conversão institucional para seguros/saúde, oferta comercial para Terra Fibra)"
     tool: "Claude (skills de copy/conteúdo)"
     input: "lista_consolidada_S1 (cliente_ativo, pauta_ou_tema_da_semana, referencias_de_marca)"
-    output: "rascunho de conteúdo por peça, identificado por cliente (post, roteiro, legenda)"
+    output: "rascunho de conteúdo por peça, identificado por cliente (post, roteiro, legenda, copy de anúncio)"
     approval_required: false
   - id: "S3"
     name: "Revisão humana do lote"
     mode: manual
     actor: human
-    description: "Operador revisa cada peça gerada antes de aprovar - obrigatório, sem publicação automática. Peça rejeitada volta para S2 com feedback (ver D1)"
+    description: "Operador revisa cada peça gerada antes de aprovar - obrigatório, sem publicação automática. Para o segmento de seguros/planos de saúde, revisar também compliance e dados sensíveis. Peça rejeitada volta para S2 com feedback (ver D1)"
     tool: "revisão manual"
     input: "rascunho de conteúdo"
     output: "conteúdo aprovado ou marcado para ajuste"
@@ -51,7 +70,7 @@ steps:
     name: "Organizar entrega/agendamento"
     mode: manual
     actor: human
-    description: "Conteúdo aprovado vai para pasta do cliente / ferramenta de agendamento (Meta Business Suite, Buffer, etc.)"
+    description: "Conteúdo aprovado vai para pasta do cliente / ferramenta de agendamento (Meta Business Suite, Buffer, etc.) ou para a operação de tráfego pago quando for copy de anúncio"
     tool: "ferramenta de agendamento do cliente"
     input: "conteúdo aprovado"
     output: "conteúdo agendado/entregue"
@@ -61,17 +80,21 @@ decision_points:
     condition: "Em S3, a peça foi aprovada ou marcada para ajuste?"
     if_true: "Aprovada -> segue para S4"
     if_false: "Marcada para ajuste (qualquer rodada, inclusive a primeira) -> volta para S2 com o feedback específico do revisor"
+  - id: "D2"
+    condition: "É semana de lançamento ativo para a Previsa?"
+    if_true: "Aumentar cadência para diária e priorizar o lote da Previsa em S1/S2"
+    if_false: "Manter cadência semanal padrão para todos os clientes"
 human_handoff:
   required: true
   when: "Antes de qualquer publicação ou envio ao cliente - toda peça passa por aprovação humana"
   responsible: "Calixto Soluções (estrategista digital)"
 tools:
   - name: "Claude / KPA30"
-    purpose: "Gerar rascunhos de conteúdo em lote a partir de pauta e brand-profile"
+    purpose: "Gerar rascunhos de conteúdo em lote a partir de pauta, fase estratégica e brand-profile de cada cliente"
     access_needed: "leitura de briefing/brand-profile do cliente"
     risk_level: low
   - name: "Planilha/CRM de clientes"
-    purpose: "Fonte de verdade de clientes ativos e pautas"
+    purpose: "Fonte de verdade de clientes ativos, pautas e fase estratégica (ex.: calendário de lançamento da Previsa)"
     access_needed: "leitura"
     risk_level: low
   - name: "Ferramenta de agendamento (a definir)"
@@ -80,13 +103,13 @@ tools:
     risk_level: medium
 data_privacy:
   personal_data: unknown
-  sensitive_data: unknown
-  notes: "Depende do segmento de cada cliente (ex: clínica de saúde tem dado sensível) - avaliar caso a caso antes de automatizar publicação"
+  sensitive_data: "provável para o cliente de seguros/planos de saúde"
+  notes: "Segmento de seguros/planos de saúde pode envolver dado sensível de saúde - avaliar caso a caso e reforçar revisão de compliance antes de aprovar/publicar qualquer peça desse cliente"
 test_plan:
-  dry_run_input: "1 cliente piloto + 1 pauta real da semana"
-  expected_output: "3-5 peças de conteúdo revisáveis, tom de voz alinhado ao brand-profile do cliente"
-  pass_criteria: "Operador aprova pelo menos 70% do lote sem reescrever do zero"
+  dry_run_input: "1 cliente piloto por segmento (Previsa, seguros/planos de saúde, Terra Fibra Óptica) + 1 pauta real da semana de cada um"
+  expected_output: "3-5 peças de conteúdo revisáveis por cliente, tom de voz alinhado ao brand-profile e à fase estratégica de cada conta"
+  pass_criteria: "Operador aprova pelo menos 70% do lote de cada cliente sem reescrever do zero"
 rollback_plan:
   how_to_stop: "Desativar/remover o agendador (schedule trigger) que dispara a geração semanal - não basta parar de rodar manualmente, senão ele continua disparando toda segunda-feira. Nenhuma automação de publicação está ativa, então não há nada a reverter em canais do cliente"
-  how_to_restore: "Voltar ao processo manual de criação ponto a ponto"
-next_action: "Rodar teste piloto com 1 cliente real na próxima segunda-feira; validar qualidade do rascunho antes de expandir para os demais clientes ativos"
+  how_to_restore: "Voltar ao processo manual de criação ponto a ponto, cliente a cliente"
+next_action: "Automação operante: rodar o lote semanal para os três clientes (Previsa, seguros/planos de saúde, Terra Fibra Óptica) toda segunda-feira, com prioridade extra para a Previsa em semana de lançamento ativo"
