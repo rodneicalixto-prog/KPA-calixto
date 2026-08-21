@@ -1,0 +1,92 @@
+automation_status: draft
+process_name: "Automação de criação de conteúdo recorrente - Calixto Soluções"
+segment: "agencia-servico-digital"
+owner: "Calixto Soluções (estrategista digital)"
+goal: "Reduzir o tempo gasto criando conteúdo (posts, roteiros, briefings) para clientes de tráfego/mkt, mantendo cadência semanal sem depender de bloco de tempo manual todo dia"
+trigger:
+  type: schedule
+  description: "Toda segunda-feira de manhã, dispara a geração do lote de conteúdo da semana para cada cliente ativo"
+inputs:
+  - name: "cliente_ativo"
+    source: "planilha ou CRM com lista de clientes em contrato"
+    required: true
+    example: "Cliente X - segmento clínica odontológica"
+  - name: "pauta_ou_tema_da_semana"
+    source: "definido manualmente ou herdado do calendário editorial do cliente"
+    required: true
+    example: "Semana de conscientização - clareamento dental"
+  - name: "referencias_de_marca"
+    source: "brand-profile.json / briefing do cliente"
+    required: false
+    example: "tom de voz, cores, provas, CTA padrão"
+steps:
+  - id: "S1"
+    name: "Puxar lista de clientes ativos e pauta da semana"
+    mode: manual
+    actor: human
+    description: "Operador confirma quais clientes entram no lote da semana e a pauta de cada um"
+    tool: "planilha/CRM"
+    input: "cliente_ativo, pauta_ou_tema_da_semana"
+    output: "lista consolidada da semana"
+    approval_required: true
+  - id: "S2"
+    name: "Gerar rascunho de conteúdo por cliente"
+    mode: ai_assisted
+    actor: ai_agent
+    description: "Claude gera copy/roteiro/carrossel a partir da pauta e do brand-profile do cliente, usando skills de copy da agência"
+    tool: "Claude (skills de copy/conteúdo)"
+    input: "pauta_ou_tema_da_semana, referencias_de_marca"
+    output: "rascunho de conteúdo por peça (post, roteiro, legenda)"
+    approval_required: false
+  - id: "S3"
+    name: "Revisão humana do lote"
+    mode: manual
+    actor: human
+    description: "Operador revisa cada peça gerada antes de aprovar - obrigatório, sem publicação automática"
+    tool: "revisão manual"
+    input: "rascunho de conteúdo"
+    output: "conteúdo aprovado ou marcado para ajuste"
+    approval_required: true
+  - id: "S4"
+    name: "Organizar entrega/agendamento"
+    mode: manual
+    actor: human
+    description: "Conteúdo aprovado vai para pasta do cliente / ferramenta de agendamento (Meta Business Suite, Buffer, etc.)"
+    tool: "ferramenta de agendamento do cliente"
+    input: "conteúdo aprovado"
+    output: "conteúdo agendado/entregue"
+    approval_required: true
+decision_points:
+  - id: "D1"
+    condition: "Rascunho gerado precisa de mais de 1 rodada de ajuste?"
+    if_true: "Operador ajusta manualmente e reexecuta S2 com feedback específico"
+    if_false: "Segue para S3"
+human_handoff:
+  required: true
+  when: "Antes de qualquer publicação ou envio ao cliente - toda peça passa por aprovação humana"
+  responsible: "Calixto Soluções (estrategista digital)"
+tools:
+  - name: "Claude / KPA30"
+    purpose: "Gerar rascunhos de conteúdo em lote a partir de pauta e brand-profile"
+    access_needed: "leitura de briefing/brand-profile do cliente"
+    risk_level: low
+  - name: "Planilha/CRM de clientes"
+    purpose: "Fonte de verdade de clientes ativos e pautas"
+    access_needed: "leitura"
+    risk_level: low
+  - name: "Ferramenta de agendamento (a definir)"
+    purpose: "Publicar/agendar conteúdo aprovado"
+    access_needed: "escrita - NÃO automatizado neste desenho, só manual"
+    risk_level: medium
+data_privacy:
+  personal_data: unknown
+  sensitive_data: unknown
+  notes: "Depende do segmento de cada cliente (ex: clínica de saúde tem dado sensível) - avaliar caso a caso antes de automatizar publicação"
+test_plan:
+  dry_run_input: "1 cliente piloto + 1 pauta real da semana"
+  expected_output: "3-5 peças de conteúdo revisáveis, tom de voz alinhado ao brand-profile do cliente"
+  pass_criteria: "Operador aprova pelo menos 70% do lote sem reescrever do zero"
+rollback_plan:
+  how_to_stop: "Parar de rodar o trigger semanal manualmente; nenhuma automação de publicação está ativa, então não há nada para reverter em canais do cliente"
+  how_to_restore: "Voltar ao processo manual de criação ponto a ponto"
+next_action: "Rodar teste piloto com 1 cliente real na próxima segunda-feira; validar qualidade do rascunho antes de expandir para os demais clientes ativos"
