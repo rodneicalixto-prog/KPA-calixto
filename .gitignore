@@ -1,0 +1,22 @@
+# Kit Piloto Automatico V30 — anti-leak
+# .env real NUNCA vai pro Git. .env.example (sem secrets) pode.
+.env
+.env.local
+.env.*.local
+
+# Dependências
+node_modules/
+__pycache__/
+*.pyc
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Logs e workspace de execução (rastro operacional local, não versionar por padrão)
+07_LOGS/*.log
+05_WORKSPACE/tmp/
