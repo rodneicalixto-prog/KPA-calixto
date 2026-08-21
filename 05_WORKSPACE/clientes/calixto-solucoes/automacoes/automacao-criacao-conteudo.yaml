@@ -27,22 +27,22 @@ steps:
     description: "Operador confirma quais clientes entram no lote da semana e a pauta de cada um"
     tool: "planilha/CRM"
     input: "cliente_ativo, pauta_ou_tema_da_semana"
-    output: "lista consolidada da semana"
+    output: "lista consolidada da semana (cliente + pauta + brand-profile)"
     approval_required: true
   - id: "S2"
     name: "Gerar rascunho de conteúdo por cliente"
     mode: ai_assisted
     actor: ai_agent
-    description: "Claude gera copy/roteiro/carrossel a partir da pauta e do brand-profile do cliente, usando skills de copy da agência"
+    description: "Claude gera copy/roteiro/carrossel por cliente, usando a lista consolidada de S1 (cliente_ativo + pauta) e o brand-profile de cada um, via skills de copy da agência"
     tool: "Claude (skills de copy/conteúdo)"
-    input: "pauta_ou_tema_da_semana, referencias_de_marca"
-    output: "rascunho de conteúdo por peça (post, roteiro, legenda)"
+    input: "lista_consolidada_S1 (cliente_ativo, pauta_ou_tema_da_semana, referencias_de_marca)"
+    output: "rascunho de conteúdo por peça, identificado por cliente (post, roteiro, legenda)"
     approval_required: false
   - id: "S3"
     name: "Revisão humana do lote"
     mode: manual
     actor: human
-    description: "Operador revisa cada peça gerada antes de aprovar - obrigatório, sem publicação automática"
+    description: "Operador revisa cada peça gerada antes de aprovar - obrigatório, sem publicação automática. Peça rejeitada volta para S2 com feedback (ver D1)"
     tool: "revisão manual"
     input: "rascunho de conteúdo"
     output: "conteúdo aprovado ou marcado para ajuste"
@@ -58,9 +58,9 @@ steps:
     approval_required: true
 decision_points:
   - id: "D1"
-    condition: "Rascunho gerado precisa de mais de 1 rodada de ajuste?"
-    if_true: "Operador ajusta manualmente e reexecuta S2 com feedback específico"
-    if_false: "Segue para S3"
+    condition: "Em S3, a peça foi aprovada ou marcada para ajuste?"
+    if_true: "Aprovada -> segue para S4"
+    if_false: "Marcada para ajuste (qualquer rodada, inclusive a primeira) -> volta para S2 com o feedback específico do revisor"
 human_handoff:
   required: true
   when: "Antes de qualquer publicação ou envio ao cliente - toda peça passa por aprovação humana"
@@ -87,6 +87,6 @@ test_plan:
   expected_output: "3-5 peças de conteúdo revisáveis, tom de voz alinhado ao brand-profile do cliente"
   pass_criteria: "Operador aprova pelo menos 70% do lote sem reescrever do zero"
 rollback_plan:
-  how_to_stop: "Parar de rodar o trigger semanal manualmente; nenhuma automação de publicação está ativa, então não há nada para reverter em canais do cliente"
+  how_to_stop: "Desativar/remover o agendador (schedule trigger) que dispara a geração semanal - não basta parar de rodar manualmente, senão ele continua disparando toda segunda-feira. Nenhuma automação de publicação está ativa, então não há nada a reverter em canais do cliente"
   how_to_restore: "Voltar ao processo manual de criação ponto a ponto"
 next_action: "Rodar teste piloto com 1 cliente real na próxima segunda-feira; validar qualidade do rascunho antes de expandir para os demais clientes ativos"

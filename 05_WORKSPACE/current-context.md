@@ -11,9 +11,9 @@ status: "onboarded"
 proxima_task: "piloto da automacao de conteudo com 1 cliente real"
 arquivos_relevantes:
   - ".claude/config.md"
-  - "15_PRODUCT_RELEASE/exemplos/familias/agencia-servico-digital.md"
-  - "06_OUTPUTS/2026-08-21_primeira-tarefa/automacao-criacao-conteudo.yaml"
+  - "exemplos/familias/agencia-servico-digital.md"
+  - "05_WORKSPACE/clientes/calixto-solucoes/automacoes/automacao-criacao-conteudo.yaml"
 squad_manifest: "[A PREENCHER quando cliente piloto for definido]"
 whatsapp_status: "sera_mapeado"
-preflight_status: "instalacao_concluida"
+preflight_status: "instalacao_parcial"
 ```

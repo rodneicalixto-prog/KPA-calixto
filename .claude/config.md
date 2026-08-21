@@ -15,14 +15,14 @@ mcps_ativos: ["rube (pendente - não persiste em container remoto)", "whatsapp (
 recommended_templates: []
 recommended_whatsapp_flows: []
 recommended_automation: "Automação de criação de conteúdo e fluxos recorrentes (maior gargalo relatado)"
-first_task: "Briefing organizado de cliente novo"
+first_task: "Automação de criação de conteúdo recorrente (draft) - 05_WORKSPACE/clientes/calixto-solucoes/automacoes/automacao-criacao-conteudo.yaml"
 created_at: "2026-08-21T16:18:49Z"
 ```
 
 ## Arquivos do kit adaptados
 
-- Familia operacional: `15_PRODUCT_RELEASE/exemplos/familias/agencia-servico-digital.md` (se existir)
-- Preset (se houver): `15_PRODUCT_RELEASE/nichos/<nicho>/`
+- Familia operacional: `exemplos/familias/agencia-servico-digital.md`
+- Preset (se houver): `nichos/<nicho>/`
 - Squad inicial: `13_ADAPTIVE_SQUADS/`
 
 ## Pendências desta instalação
