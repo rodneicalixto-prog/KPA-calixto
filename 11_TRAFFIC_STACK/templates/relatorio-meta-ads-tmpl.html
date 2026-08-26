@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diagnóstico Meta Ads — {{CLIENTE}}</title>
+  <style>
+    :root{--ink:#172033;--muted:#667085;--line:#e4e7ec;--brand:#3157d5;--paper:#fff;--wash:#f7f8fa}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--wash);font:15px/1.5 Inter,system-ui,sans-serif}main{width:min(1080px,calc(100% - 32px));margin:32px auto;background:var(--paper);padding:40px;border:1px solid var(--line);border-radius:16px}header{border-bottom:3px solid var(--brand);padding-bottom:20px}h1{margin:0;font-size:30px}h2{margin:30px 0 12px}.meta{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}.card{padding:16px;border:1px solid var(--line);border-radius:10px}.card strong{display:block;font-size:22px}table{width:100%;border-collapse:collapse}th,td{padding:10px;text-align:left;border-bottom:1px solid var(--line)}th{background:var(--wash)}.callout{border-left:4px solid var(--brand);padding:14px 18px;background:#f4f6ff}footer{margin-top:36px;color:var(--muted);font-size:12px}@media(max-width:760px){main{margin:0;width:100%;padding:22px;border:0}.grid{grid-template-columns:1fr 1fr}table{display:block;overflow:auto}}@media print{body{background:#fff}main{width:100%;margin:0;border:0;padding:0}}
+  </style>
+</head>
+<body><main>
+  <header><p class="meta">TRAFFIC STACK · META ADS · SOMENTE LEITURA</p><h1>{{CLIENTE}}</h1><p>{{JANELA}} · Conta {{CONTA}}</p></header>
+  <section class="grid">
+    <div class="card">Investimento<strong>{{INVESTIMENTO}}</strong></div>
+    <div class="card">Resultados<strong>{{RESULTADOS}}</strong></div>
+    <div class="card">Custo/resultado<strong>{{CUSTO_RESULTADO}}</strong></div>
+    <div class="card">CTR de link<strong>{{CTR_LINK}}</strong></div>
+  </section>
+  <h2>Resumo executivo</h2><div class="callout">{{RESUMO}}</div>
+  <h2>Campanhas</h2><table><thead><tr><th>Campanha</th><th>Status</th><th>Investimento</th><th>Impressões</th><th>Alcance</th><th>Cliques</th><th>Resultados</th></tr></thead><tbody>{{CAMPANHAS}}</tbody></table>
+  <h2>Lacunas e próximos gates</h2><p>{{LACUNAS}}</p>
+  <footer>Fonte: export Meta Ads normalizado e validado. Nenhuma alteração de campanha é autorizada por este relatório.</footer>
+</main></body></html>

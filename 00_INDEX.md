@@ -110,6 +110,15 @@ Wizard guiado que cobre todas as etapas (~15-20 min):
 
 Detalhes em `00_OS/commands/instalar-kpa30.md`.
 
+## Validar o kit completo
+
+```bash
+python3 scripts/validate_kpa30.py
+python3 -m unittest scripts/test_validate_kpa30.py
+```
+
+O status consolidado e os defaults de segurança ficam em `KIT_STATUS.json`.
+
 ## Setup avancado (manual)
 
 Caso queira rodar etapas separadas:

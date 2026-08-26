@@ -1,0 +1,27 @@
+{
+  "version": "30.0.0",
+  "release_status": "core_complete_external_integrations_optional",
+  "validated_on": "2026-08-26",
+  "layers": {
+    "os": "complete",
+    "pipeline": "complete",
+    "agents": "complete",
+    "tasks": "complete",
+    "diretrizes": "complete",
+    "workspace": "complete",
+    "outputs_and_logs": "complete",
+    "whatsapp_stack": "complete_draft_first",
+    "adaptive_squads": "complete",
+    "product_release": "complete",
+    "automation_stack": "complete_draft_first",
+    "mcp_setup": "complete_connectors_optional",
+    "builder_kit": "complete",
+    "claude_desktop": "complete",
+    "traffic_stack": "installed_deferred_by_operator"
+  },
+  "global_safety": {
+    "credentials_in_repository": false,
+    "external_writes_enabled_by_default": false,
+    "human_approval_for_irreversible_actions": true
+  }
+}

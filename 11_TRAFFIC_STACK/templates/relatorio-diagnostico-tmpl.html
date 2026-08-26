@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diagnóstico de tráfego — {{CLIENTE}}</title>
+  <style>
+    :root { --ink:#172033; --muted:#667085; --line:#e4e7ec; --brand:#3157d5; --good:#087a55; --warn:#b54708; --bad:#b42318; --paper:#fff; --wash:#f7f8fa; }
+    * { box-sizing:border-box; } body { margin:0; color:var(--ink); background:var(--wash); font:15px/1.5 Inter,system-ui,sans-serif; }
+    main { width:min(1120px,calc(100% - 32px)); margin:32px auto; background:var(--paper); padding:40px; border:1px solid var(--line); border-radius:16px; }
+    header { display:flex; justify-content:space-between; gap:24px; border-bottom:3px solid var(--brand); padding-bottom:24px; }
+    h1 { margin:0; font-size:30px; } h2 { margin:32px 0 12px; font-size:20px; } p { margin:6px 0; }
+    .meta,.note { color:var(--muted); } .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:20px 0; }
+    .card { padding:16px; border:1px solid var(--line); border-radius:10px; } .card strong { display:block; font-size:22px; }
+    table { width:100%; border-collapse:collapse; } th,td { padding:10px; text-align:left; border-bottom:1px solid var(--line); } th { background:var(--wash); }
+    .status { padding:3px 8px; border-radius:999px; font-weight:700; font-size:12px; } .good { color:var(--good); background:#ecfdf3; } .warn { color:var(--warn); background:#fffaeb; } .bad { color:var(--bad); background:#fef3f2; }
+    .callout { border-left:4px solid var(--brand); padding:14px 18px; background:#f4f6ff; } footer { margin-top:36px; color:var(--muted); font-size:12px; }
+    @media(max-width:760px){ main{margin:0;width:100%;padding:22px;border:0;border-radius:0} header{display:block}.grid{grid-template-columns:1fr 1fr} table{display:block;overflow:auto} }
+    @media print { body{background:#fff} main{width:100%;margin:0;border:0;padding:0} }
+  </style>
+</head>
+<body><main>
+  <header><div><p class="meta">TRAFFIC STACK · DIAGNÓSTICO</p><h1>{{CLIENTE}}</h1><p>{{JANELA_ANALISE}}</p></div><div class="meta">Gerado em {{DATA_GERACAO}}<br>Conta {{ACT_ID}}</div></header>
+  <section class="grid">
+    <div class="card">Investimento<strong>{{SPEND}}</strong><span>{{DELTA_SPEND}}</span></div>
+    <div class="card">CPA<strong>{{CPA}}</strong><span>{{DELTA_CPA}}</span></div>
+    <div class="card">ROAS<strong>{{ROAS}}</strong><span>{{DELTA_ROAS}}</span></div>
+    <div class="card">Compras<strong>{{PURCHASES}}</strong><span>{{DELTA_PURCHASES}}</span></div>
+  </section>
+  <h2>Resumo executivo</h2><div class="callout">{{RESUMO_EXECUTIVO}}</div>
+  <h2>Leitura por estágio</h2>
+  <table><thead><tr><th>Estágio</th><th>Métrica</th><th>Atual</th><th>Baseline</th><th>Variação</th><th>Status</th></tr></thead><tbody>{{FUNNEL_ROWS}}</tbody></table>
+  <h2>Gargalo primário</h2><p><strong>{{GARGALO}}</strong></p><p>{{EVIDENCIAS}}</p>
+  <h2>Plano de ação</h2>
+  <table><thead><tr><th>Prazo</th><th>Ação</th><th>Responsável</th><th>Critério de sucesso</th></tr></thead><tbody>{{ACTION_ROWS}}</tbody></table>
+  <h2>Lacunas e riscos</h2><p>{{LACUNAS_RISCOS}}</p>
+  <footer>Fonte: {{FONTES_DADOS}} · Dados não disponíveis devem permanecer identificados como [DADO AUSENTE]. Nenhuma alteração de campanha é autorizada por este relatório.</footer>
+</main></body></html>
