@@ -1,0 +1,41 @@
+version: 1
+name: kpa-obsidian-memory-policy
+authoritative_state: ledger
+long_term_memory: obsidian
+skill_knowledge: mega_brain
+runtime_llm:
+  provider_agnostic: true
+  supported_roles:
+    - gpt
+    - claude
+read:
+  max_notes_per_context: 12
+  allowed_roots:
+    - 00_System
+    - 01_Identity
+    - 02_Projects
+    - 03_Agents
+    - 04_Skills
+    - 05_Knowledge
+    - 06_Decisions
+    - 07_Executions
+    - 08_Lessons
+write:
+  allowed_roots:
+    - 02_Projects
+    - 06_Decisions
+    - 07_Executions
+    - 08_Lessons
+    - 99_Inbox
+  deny_patterns:
+    - "*.env"
+    - "*secret*"
+    - "*token*"
+    - "*password*"
+    - "*credential*"
+precedence:
+  - ledger
+  - project_decisions
+  - obsidian_memory
+  - skills
+  - model_inference
