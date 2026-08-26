@@ -78,6 +78,7 @@ Usuario
 - `13_ADAPTIVE_SQUADS/README.md` - squads adaptativos e manifest por cliente.
 - `15_PRODUCT_RELEASE/COMECE_AQUI.md` - entrada publica para usuario leigo.
 - `18_AUTOMATION_STACK/README.md` - agente de automacoes e blueprints de processo.
+- `18_AUTOMATION_STACK/plans/codex-ads-metrics-automation.md` - roadmap read-only Codex x Meta x Google, métricas e scheduler.
 - `20_MCP_SETUP/README.md` - conectores MCP recomendados e como instalar.
 - `21_BUILDER_KIT/README.md` - Forge agent (cria agentes, skills, tasks, diretrizes).
 - `22_CLAUDE_DESKTOP/README.md` - adaptacao pro Claude Desktop (app), Projects, MCPs, palavras-chave.

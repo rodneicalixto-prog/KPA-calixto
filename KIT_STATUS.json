@@ -17,6 +17,7 @@
     "mcp_setup": "complete_connectors_optional",
     "builder_kit": "complete",
     "claude_desktop": "complete",
+    "obsidian_memory": "configured_and_write_confirmed_on_windows",
     "traffic_stack": "installed_deferred_by_operator"
   },
   "global_safety": {
