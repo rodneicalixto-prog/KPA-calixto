@@ -11,7 +11,8 @@
   "links": [
     "KIT_STATUS",
     "KPA V30/Traffic Stack",
-    "KPA V30/Automation Stack"
+    "KPA V30/Automation Stack",
+    "KPA V30/Codex Ads Metrics Automation"
   ],
   "gate_status": "approved_with_concerns",
   "contains_credentials": false
