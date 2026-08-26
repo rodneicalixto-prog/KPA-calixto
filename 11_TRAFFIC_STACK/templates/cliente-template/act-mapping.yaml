@@ -1,0 +1,7 @@
+client: "[A_PREENCHER]"
+ad_accounts:
+  - label: "principal"
+    act_id: "[ACT_ID_SEM_TOKEN]"
+    currency: "BRL"
+    timezone: "America/Sao_Paulo"
+    status: "pendente_validacao"

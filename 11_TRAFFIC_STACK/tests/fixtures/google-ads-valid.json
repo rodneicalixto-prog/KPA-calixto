@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "platform": "google_ads",
+  "mode": "read_only",
+  "run": {
+    "run_id": "demo_weekly_20260826T120000Z",
+    "collected_at": "2026-08-26T12:00:00Z",
+    "window_start": "2026-08-18",
+    "window_end": "2026-08-25",
+    "timezone": "America/Sao_Paulo",
+    "currency": "BRL",
+    "customer_id_masked": "1234",
+    "source": "fixture_anonimizada"
+  },
+  "rows": [
+    {
+      "level": "campaign",
+      "entity_id": "campaign-1",
+      "entity_name": "Pesquisa principal",
+      "campaign_id": "campaign-1",
+      "campaign_name": "Pesquisa principal",
+      "status": "ENABLED",
+      "channel_type": "SEARCH",
+      "impressions": 1000,
+      "clicks": 100,
+      "cost": 250.0,
+      "conversions": 10.0,
+      "conversion_value": 1000.0,
+      "ctr": 0.1,
+      "average_cpc": 2.5,
+      "cost_per_conversion": 25.0,
+      "value_per_cost": 4.0
+    },
+    {
+      "level": "campaign",
+      "entity_id": "campaign-2",
+      "entity_name": "Marca",
+      "campaign_id": "campaign-2",
+      "campaign_name": "Marca",
+      "status": "ENABLED",
+      "channel_type": "SEARCH",
+      "impressions": 500,
+      "clicks": 100,
+      "cost": 100.0,
+      "conversions": 10.0,
+      "conversion_value": 500.0,
+      "ctr": 0.2,
+      "average_cpc": 1.0,
+      "cost_per_conversion": 10.0,
+      "value_per_cost": 5.0
+    }
+  ],
+  "quality": {
+    "complete": true,
+    "totals_reconciled": true,
+    "conversion_definition_confirmed": true,
+    "notes": []
+  },
+  "safety": {
+    "contains_credentials": false,
+    "contains_personal_data": false,
+    "platform_writes_allowed": false,
+    "human_approval_required": true
+  }
+}
+

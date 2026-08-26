@@ -34,6 +34,7 @@ O comando:
 | 1 | **Filesystem** | Acesso a pastas locais sem permissao repetida |
 | 2 | **Playwright** | Browser automation, screenshots, auditoria de LP |
 | 2 | **Firecrawl** ou **Exa** | Scraping/research de concorrentes |
+| 2 | **Google Ads (read-only)** | Coleta validada para diagnóstico; ativar apenas quando houver cliente e acesso |
 | 2 | **Context7** | Docs de bibliotecas atualizadas |
 | 3 | **GitHub** | Versionar projetos do mentorado |
 | 3 | **Sequential Thinking** | Raciocinio passo-a-passo pra tasks complexas |
@@ -49,6 +50,7 @@ O comando:
 | `connectors/gmail.md` | Gmail (via Rube ou nativo) |
 | `connectors/notion.md` | Notion (via Rube) |
 | `connectors/meta-ads.md` | Meta Ads (Facebook/Instagram via Rube ou CLI nativo) |
+| `connectors/google-ads.md` | Critérios e teste de aceitação para Google Ads somente leitura |
 | `connectors/playwright.md` | Playwright browser |
 | `connectors/firecrawl.md` | Firecrawl scraper |
 | `connectors/github.md` | GitHub MCP |

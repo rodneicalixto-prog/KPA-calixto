@@ -62,7 +62,9 @@ class ObsidianMemoryAdapter:
         date = datetime.now().astimezone()
         project_dir = self.vault / "07_Executions" / self._slug(record.project)
         project_dir.mkdir(parents=True, exist_ok=True)
-        filename = f"{date:%Y-%m-%d_%H%M}-{self._slug(record.task_id)}.md"
+        # Uma task possui uma nota canônica por dia. Reexecuções atualizam a
+        # mesma memória em vez de criar duplicatas a cada minuto.
+        filename = f"{date:%Y-%m-%d}-{self._slug(record.task_id)}.md"
         path = project_dir / filename
         links = "\n".join(f"- [[{x}]]" for x in record.links) or "- none"
         body = f"""---
