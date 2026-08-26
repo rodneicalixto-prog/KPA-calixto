@@ -10,6 +10,7 @@ from pathlib import Path
 import re
 import sys
 from typing import Any
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 
 MASKED_ID = re.compile(r"^\*{3}\d{4}$")
@@ -37,8 +38,14 @@ def validate_payload(value: Any) -> list[str]:
                 errors.append("window: end não pode anteceder start")
         except (KeyError, TypeError, ValueError):
             errors.append("window: start e end devem usar AAAA-MM-DD")
-        if not isinstance(window.get("timezone"), str) or not window["timezone"].strip():
+        timezone = window.get("timezone")
+        if not isinstance(timezone, str) or not timezone.strip():
             errors.append("window.timezone: obrigatório")
+        else:
+            try:
+                ZoneInfo(timezone)
+            except (ZoneInfoNotFoundError, ValueError):
+                errors.append("window.timezone: identificador IANA inválido")
     attribution = value.get("attribution")
     if not isinstance(attribution, dict) or not isinstance(attribution.get("definition_confirmed"), bool):
         errors.append("attribution.definition_confirmed: booleano obrigatório")

@@ -52,6 +52,21 @@ class WriteObsidianMemoryTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(len(notes), 1)
 
+    def test_repeated_apply_is_idempotent_for_same_task_and_day(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            vault = root / "vault"
+            vault.mkdir()
+            record = root / "record.json"
+            record.write_text(json.dumps(payload()), encoding="utf-8")
+            command = [sys.executable, str(TOOL), str(record), "--vault", str(vault), "--apply"]
+            first = subprocess.run(command, capture_output=True, text=True)
+            second = subprocess.run(command, capture_output=True, text=True)
+            notes = list((vault / "07_Executions" / "KPA-V30").glob("*.md"))
+        self.assertEqual(first.returncode, 0, first.stderr)
+        self.assertEqual(second.returncode, 0, second.stderr)
+        self.assertEqual(len(notes), 1)
+
     def test_credentials_flag_blocks_write(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

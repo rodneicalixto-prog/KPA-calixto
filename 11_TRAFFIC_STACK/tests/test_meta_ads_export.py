@@ -34,6 +34,12 @@ class MetaAdsExportTests(unittest.TestCase):
         self.assertTrue(any("account_id_masked" in error for error in errors))
         self.assertTrue(any("platform_writes_allowed" in error for error in errors))
 
+    def test_blocks_invalid_iana_timezone(self) -> None:
+        payload = json.loads(FIXTURE.read_text(encoding="utf-8"))
+        payload["window"]["timezone"] = "banana"
+        errors = module.validate_payload(payload)
+        self.assertTrue(any("identificador IANA inválido" in error for error in errors))
+
     def test_cli_exit_codes(self) -> None:
         valid = subprocess.run([sys.executable, str(TOOL), str(FIXTURE)], capture_output=True, text=True)
         with tempfile.TemporaryDirectory() as directory:
