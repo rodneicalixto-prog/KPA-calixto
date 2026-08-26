@@ -67,6 +67,30 @@ class DeployTrafficKitTests(unittest.TestCase):
         self.assertIn("allow_platform_writes", result.stdout)
         self.assertFalse(exists)
 
+    def test_non_list_jobs_is_blocked_without_traceback(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            target = workspace(Path(directory))
+            schedule_path = target / "traffic-schedule.json"
+            schedule = json.loads(schedule_path.read_text(encoding="utf-8"))
+            schedule["jobs"] = "disabled"
+            schedule_path.write_text(json.dumps(schedule), encoding="utf-8")
+            result = self.run_tool(target, "--apply")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("jobs deve ser uma lista", result.stdout)
+        self.assertNotIn("Traceback", result.stderr)
+
+    def test_non_object_job_is_blocked_without_traceback(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            target = workspace(Path(directory))
+            schedule_path = target / "traffic-schedule.json"
+            schedule = json.loads(schedule_path.read_text(encoding="utf-8"))
+            schedule["jobs"] = ["weekly_review"]
+            schedule_path.write_text(json.dumps(schedule), encoding="utf-8")
+            result = self.run_tool(target, "--apply")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("jobs[0] deve ser um objeto", result.stdout)
+        self.assertNotIn("Traceback", result.stderr)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -55,8 +55,17 @@ def audit(workspace: Path) -> tuple[dict[str, Any] | None, list[str]]:
         for key, expected in REQUIRED_SAFETY.items():
             if safety.get(key) is not expected:
                 errors.append(f"traffic-schedule.json: safety.{key} deve ser {expected}")
-    if any(job.get("enabled") is not False for job in schedule.get("jobs", [])):
-        errors.append("traffic-schedule.json: implantação exige todos os jobs desativados")
+    jobs = schedule.get("jobs")
+    if not isinstance(jobs, list):
+        errors.append("traffic-schedule.json: jobs deve ser uma lista")
+    else:
+        for index, job in enumerate(jobs):
+            if not isinstance(job, dict):
+                errors.append(f"traffic-schedule.json: jobs[{index}] deve ser um objeto")
+            elif job.get("enabled") is not False:
+                errors.append(
+                    f"traffic-schedule.json: jobs[{index}].enabled deve ser false"
+                )
     if state.get("contains_credentials") is not False:
         errors.append("traffic-state.json: contains_credentials deve ser false")
     if errors:
