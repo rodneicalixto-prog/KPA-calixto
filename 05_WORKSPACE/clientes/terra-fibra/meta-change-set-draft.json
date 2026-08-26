@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "status": "approved_pending_meta_configuration_and_drafts_audit",
+  "platform": "meta_ads",
+  "client": "terra-fibra",
+  "account_suffix": "0862",
+  "campaign_suffix": "1882",
+  "source_adset_name": "CS | Todas cidades | WhatsApp",
+  "proposed_adset_name": "CS | Cobertura validada | WhatsApp | v1",
+  "operation": "duplicate_then_edit",
+  "publication_allowed": false,
+  "platform_writes_allowed": false,
+  "human_approval_required": true,
+  "campaign_must_remain_paused": true,
+  "approval": {
+    "approved_by": "Rodnei",
+    "approved_on": "2026-08-26",
+    "cities": true,
+    "test_budget": true,
+    "coverage_copy": true,
+    "whatsapp_flow": true,
+    "account_drafts_audited": false
+  },
+  "budget": {
+    "action": "keep_unchanged_during_validation",
+    "observed_daily_brl": 21.54
+  },
+  "locations": {
+    "country": "BR",
+    "state": "SP",
+    "include_city_names": [
+      "Aguaí",
+      "Caieiras",
+      "Casa Branca",
+      "Cerquilho",
+      "Francisco Morato",
+      "Franco da Rocha",
+      "Laranjal Paulista",
+      "Monte Alto",
+      "Monte Mor",
+      "Novo Horizonte",
+      "Pindorama",
+      "Pitangueiras",
+      "Porto Ferreira",
+      "Rio das Pedras",
+      "Santa Adélia",
+      "Santa Cruz das Palmeiras",
+      "Santa Rita do Passa Quatro",
+      "São Pedro",
+      "Taquaritinga",
+      "Vargem Grande do Sul",
+      "Vargem Grande Paulista"
+    ],
+    "include_location_ids": [],
+    "exclude_location_ids": [],
+    "resolution_status": "pending_exact_meta_location_selection",
+    "presence_option": "pending_most_restrictive_available_option_review",
+    "automatic_expansion": "pending_review_disable_if_possible"
+  },
+  "creative": {
+    "coverage_claim": "regiões selecionadas das cidades atendidas",
+    "cta": "Consultar cobertura no WhatsApp",
+    "address_validation": "automatic_geolocation",
+    "copy_approved": true
+  },
+  "whatsapp": {
+    "first_questions": [
+      "Cidade",
+      "Bairro",
+      "CEP"
+    ],
+    "request_house_number_initially": false,
+    "flow_approved": true
+  },
+  "rollback": {
+    "preserve_original_adset": true,
+    "publish_new_adset_initially": false,
+    "reactivation_requires_rodnei_approval": true
+  },
+  "blocked_by": [
+    "exact Meta location entities not selected",
+    "location presence option not reviewed",
+    "automatic expansion not reviewed",
+    "15 unrelated account drafts not audited"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "client": "[A_PREENCHER]",
+  "state_file": "[CAMINHO_TRAFFIC_STATE_JSON]",
+  "jobs": [
+    {
+      "id": "weekly_review",
+      "enabled": false,
+      "mode": "weekly_review",
+      "input_export": "[CAMINHO_EXPORT_JSON]",
+      "output_html": "06_OUTPUTS/[CLIENTE]/traffic/diagnostico-google-ads.html"
+    }
+  ],
+  "safety": {
+    "read_only": true,
+    "allow_platform_writes": false,
+    "require_human_approval": true
+  }
+}

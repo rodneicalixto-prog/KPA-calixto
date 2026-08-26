@@ -69,26 +69,51 @@ E faz isso conectada ao CLI `meta` oficial, permitindo puxar dados reais e gerar
 │   └── competitor-spy.md
 ├── tasks/                                # Tasks operacionais
 │   ├── diagnosticar-campanha-meta-cli.md
-│   ├── analisar-criativos.md
-│   ├── investigar-queda.md
-│   ├── escalar-vencedores.md
-│   └── espionar-concorrente.md
+│   ├── diagnosticar-google-ads.md
+│   └── operacao-agendada-trafego.md
 ├── skills/
-│   └── direct-response-br/
-│       └── SKILL.md                      # DR brasileiro: ABO, CBO, Oxigênio, kill criteria
+│   ├── direct-response-br/SKILL.md       # DR brasileiro: ABO, CBO, Oxigênio, kill criteria
+│   ├── direct-response-tiktok/SKILL.md   # Diagnóstico e experimentação TikTok DR
+│   └── meta-cli-install/SKILL.md         # Instalação segura do CLI Meta
 ├── playbooks/
 │   ├── direct-response-flow.md
 │   ├── quiz-funnel-flow.md
 │   └── vsl-flow.md
-└── templates/
+├── templates/
     ├── relatorio-diagnostico-tmpl.html
     ├── relatorio-criativos-tmpl.html
+    ├── relatorio-meta-ads-tmpl.html       # Relatório Meta responsivo e imprimível
+    ├── google-ads-insights-schema.yaml     # Contrato normalizado somente leitura
+    ├── meta-ads-insights-schema.json       # Contrato de export Meta somente leitura
+    ├── schedule-template.yaml             # Agenda desativada e read-only por padrão
+    ├── schedule-runtime-template.json     # Configuração executável, desativada por padrão
     └── cliente-template/                 # Template pra novo cliente em 05_WORKSPACE/clientes/
         ├── CLAUDE.md
         ├── act-mapping.yaml
         ├── icp.md
         ├── funil.md
         └── baseline-kpis.md
+├── tests/
+│   ├── validate_stack.py                  # Validação estrutural sem dependências externas
+│   ├── test_activate_traffic_job.py        # Testes da ativação explícita
+│   ├── test_google_ads_export.py          # Testes do contrato Google Ads
+│   ├── test_google_ads_report.py          # Testes end-to-end do relatório
+│   ├── test_meta_ads_export.py             # Testes do gate de export Meta Ads
+│   ├── test_meta_ads_report.py             # Testes end-to-end do relatório Meta
+│   ├── test_init_traffic_client.py         # Testes de criação segura do workspace
+│   ├── test_preflight_traffic_client.py    # Testes do preflight read-only
+│   ├── test_scheduled_traffic.py           # Testes do executor local
+│   └── fixtures/google-ads-valid.json      # Export anonimizado para execução local
+├── tools/
+│   ├── validate_google_ads_export.py      # Gate executável para export normalizado
+│   ├── validate_meta_ads_export.py        # Gate seguro para export Meta normalizado
+│   ├── render_meta_ads_report.py          # Renderer HTML Meta após o gate
+│   ├── activate_traffic_job.py            # Ativação após preflight e confirmação exata
+│   ├── render_google_ads_report.py        # Renderer HTML após aprovação do gate
+│   ├── init_traffic_client.py             # Inicializador sem credenciais e sem overwrite
+│   ├── preflight_traffic_client.py        # Gate antes de configurar execução
+│   ├── deploy_traffic_kit.py               # Implanta manifesto local sem ativar integrações
+│   └── run_scheduled_traffic.py           # Executor allowlisted, dry-run por padrão
 ```
 
 ## Integração com o resto do V30
@@ -118,23 +143,99 @@ A stack é multi-conta por design:
 
 ## Roadmap
 
-### Sprint 1 (atual — Maio 2026)
+### Sprint 1 (concluído — Maio 2026)
 - [x] Estrutura `11_TRAFFIC_STACK/` criada
-- [ ] 8 agentes definidos (em andamento)
-- [ ] Task `diagnosticar-campanha-meta-cli.md`
-- [ ] Skill `direct-response-br`
+- [x] 8 agentes definidos
+- [x] Task `diagnosticar-campanha-meta-cli.md`
+- [x] Skill `direct-response-br`
 - [ ] Cliente piloto definido pelo operador
 
-### Sprint 2 (próximo)
-- [ ] Adicionar clientes em `05_WORKSPACE/clientes/`
-- [ ] Templates HTML de relatório
-- [ ] Playbooks de funil (DR, Quiz, VSL)
+### Sprint 2 (concluído parcialmente — Agosto 2026)
+- [x] Template de cliente para `05_WORKSPACE/clientes/`
+- [x] Inicializador executável de workspace do cliente
+- [x] Preflight executável e persistência atômica do estado
+- [ ] Instanciar cliente piloto em `05_WORKSPACE/clientes/` (depende da definição do operador)
+- [x] Templates HTML de relatório
+- [x] Playbooks de funil (DR, Quiz, VSL)
 
-### Sprint 3 (futuro)
-- [ ] Integração Google Ads CLI (quando setup estiver pronto)
-- [ ] Skill `direct-response-tiktok`
-- [ ] Auto-execução agendada (cron diário/semanal)
+### Sprint 3 (atual — Agosto 2026)
+- [x] Contrato de integração Google Ads somente leitura e schema normalizado
+- [x] Gate executável e testes do export normalizado Google Ads
+- [x] Execução offline de ponta a ponta até relatório HTML
+- [ ] Ativar coletor Google Ads para cliente piloto (depende de setup e acessos)
+- [x] Skill `direct-response-tiktok`
+- [x] Contrato e template de auto-execução agendada (desativada e read-only por padrão)
+- [x] Executor local com dry-run, allowlist e bloqueio de configurações inseguras
+- [x] Gate de ativação explícita após preflight aprovado
+- [ ] Instalar recorrência diária/semanal para cliente piloto (depende do scheduler do operador)
+
+## Validação
+
+Execute a validação estrutural sem instalar dependências:
+
+```bash
+python3 11_TRAFFIC_STACK/tests/validate_stack.py
+python3 -m unittest discover -s 11_TRAFFIC_STACK/tests -p 'test_*.py'
+```
+
+## Inicializar cliente
+
+Crie o workspace sem informar credenciais nem o ID completo da conta:
+
+```bash
+python3 11_TRAFFIC_STACK/tools/init_traffic_client.py \
+  --slug cliente-exemplo \
+  --name "Cliente Exemplo" \
+  --account-suffix 1234
+```
+
+O inicializador não sobrescreve pastas existentes. A agenda nasce em `draft`, desativada e sem permissão de escrita.
+
+Implante e registre todos os componentes locais do kit, mantendo integrações externas desativadas:
+
+```bash
+python3 11_TRAFFIC_STACK/tools/deploy_traffic_kit.py \
+  05_WORKSPACE/clientes/cliente-exemplo --apply
+```
+
+O manifesto diferencia componentes instalados de integrações ainda pendentes. Ele nunca instala credenciais, ativa jobs ou escreve em plataformas.
+
+Depois de receber um export normalizado, audite o workspace sem alterá-lo:
+
+```bash
+python3 11_TRAFFIC_STACK/tools/preflight_traffic_client.py \
+  05_WORKSPACE/clientes/cliente-exemplo \
+  --export caminho/export.json \
+  --collector-source "exportacao-validada" \
+  --conversion-action "purchase" \
+  --owner "Responsável"
+```
+
+Acrescente `--apply` somente depois de revisar o resultado. Mesmo aplicado, o preflight mantém todos os jobs desativados.
+
+Ative um job somente após o preflight:
+
+```bash
+python3 11_TRAFFIC_STACK/tools/activate_traffic_job.py \
+  05_WORKSPACE/clientes/cliente-exemplo \
+  --job weekly_review \
+  --confirm "ATIVAR SOMENTE LEITURA"
+```
+
+O comando habilita somente o job selecionado. Ele não instala cron, não coleta dados e não concede acesso à plataforma.
 
 ## Versão
 
+- **v2.2.0** — 2026-08-26 — Relatório HTML Meta Ads validado e seguro
+- **v2.1.0** — 2026-08-26 — Contrato e gate de export Meta Ads somente leitura
+- **v2.0.0** — 2026-08-26 — Implantação auditável do kit local por cliente
+- **v1.9.0** — 2026-08-26 — Ativação explícita e state gate no executor local
+- **v1.8.0** — 2026-08-26 — Preflight executável para ativação read-only
+- **v1.7.0** — 2026-08-26 — Inicializador seguro de workspace para cliente piloto
+- **v1.6.0** — 2026-08-26 — Executor local seguro para jobs de tráfego
+- **v1.5.0** — 2026-08-26 — Execução offline e relatório HTML para Google Ads
+- **v1.4.0** — 2026-08-26 — Gate executável e testes para exports Google Ads
+- **v1.3.0** — 2026-08-26 — Contrato Google Ads somente leitura e schema normalizado
+- **v1.2.0** — 2026-08-26 — Skill TikTok DR, contrato de agendamento seguro e validação automatizada
+- **v1.1.0** — 2026-08-26 — Templates de cliente e relatório; playbooks DR, Quiz e VSL
 - **v1.0.0** — 2026-05-04 — Criação inicial
