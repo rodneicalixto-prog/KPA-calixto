@@ -82,6 +82,14 @@ O V30 tem duas camadas:
 - **Motor interno**: `00_OS/`, pipeline, agents, gates, Traffic Stack, WhatsApp Stack e Adaptive Squads.
 - **Release publica**: `15_PRODUCT_RELEASE/`, a pasta que o aluno final entende e usa.
 
+O core distribuível está concluído. Valide a instalação local com:
+
+```bash
+python3 scripts/validate_kpa30.py
+```
+
+O comando confere as camadas críticas, a release pública e os defaults globais de segurança. Integrações externas permanecem opcionais e só são consideradas ativas após autenticação e preflight próprios.
+
 Para processos recorrentes, use `18_AUTOMATION_STACK/`: o agente de automacoes transforma qualquer rotina do cliente em blueprint, SOP, teste e plano de ativacao em modo `draft`.
 
 Para criar novos agentes, skills, tasks ou diretrizes, use o **Forge** em `21_BUILDER_KIT/` (`/forge` dentro do Claude Code). Ele cria seguindo o padrao V30 e atualiza indices automaticamente.

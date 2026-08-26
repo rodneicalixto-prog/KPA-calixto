@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "deployment_status": "local_kit_installed_external_integrations_pending",
+  "client": "Terra Fibra",
+  "workspace_slug": "terra-fibra",
+  "components": {
+    "client_workspace": "installed",
+    "diagnostic_playbooks": "installed",
+    "report_templates": "installed",
+    "manual_meta_workflow": "installed",
+    "drafts_inventory": "installed",
+    "meta_export_contract": "installed",
+    "meta_collector": "pending_real_export_and_read_only_validation",
+    "google_ads_collector": "not_requested",
+    "scheduler": "installed_disabled_pending_validated_collector",
+    "platform_writes": "blocked"
+  },
+  "safety": {
+    "read_only": true,
+    "allow_platform_writes": false,
+    "require_human_approval": true
+  },
+  "activation_blockers": [
+    "15 Meta account drafts not audited",
+    "Meta location entities, presence and expansion not verified",
+    "Meta real export and read-only collector not validated"
+  ]
+}

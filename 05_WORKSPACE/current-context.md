@@ -1,8 +1,8 @@
 # Current Context
 
 ```yaml
-projeto: "[A PREENCHER apos rodar /instalar-kpa30]"
-objetivo: "[A PREENCHER]"
+projeto: "Terra Fibra"
+objetivo: "Diagnosticar e acompanhar campanha Meta Ads já em veiculação"
 publico: "[A PREENCHER]"
 oferta: "[A PREENCHER]"
 mecanismo: "[A PREENCHER]"
@@ -12,12 +12,28 @@ restricoes:
   - "Anti-leak: nada com token sai do .env local"
   - "Voz humana pt-BR obrigatoria em qualquer copy entregue"
   - "Encoding UTF-8 obrigatorio em payloads pt-BR"
-status: "kit_instalado_aguardando_primeira_task"
-proxima_task: "Rodar /instalar-kpa30 pra setup completo OU /preflight-acessos pra iniciar"
-arquivos_relevantes: []
+status: "workspace_terra_fibra_criado_link_meta_recebido"
+proxima_task: "Configurar o change set aprovado como rascunho no Meta, conferir cidades/presença/expansão e auditar os 15 rascunhos sem publicar"
+arquivos_relevantes:
+  - "05_WORKSPACE/clientes/terra-fibra/CLAUDE.md"
+  - "05_WORKSPACE/clientes/terra-fibra/meta-ads-intake.md"
+  - "05_WORKSPACE/clientes/terra-fibra/windows-runbook.md"
+  - "05_WORKSPACE/clientes/terra-fibra/traffic-state.json"
+  - "05_WORKSPACE/clientes/terra-fibra/traffic-kit-deployment.json"
+  - "05_WORKSPACE/clientes/terra-fibra/lead-quality.md"
+  - "05_WORKSPACE/clientes/terra-fibra/coverage.md"
+  - "05_WORKSPACE/clientes/terra-fibra/meta-drafts-audit.md"
+  - "05_WORKSPACE/clientes/terra-fibra/meta-drafts-inventory.csv"
+  - "05_WORKSPACE/clientes/terra-fibra/meta-change-set-draft.json"
+  - "06_OUTPUTS/terra-fibra/traffic/diagnostico-preliminar-2026-08-26.md"
+  - "06_OUTPUTS/terra-fibra/traffic/plano-correcao-geografica-draft.md"
+  - "06_OUTPUTS/terra-fibra/traffic/revisao-change-set-meta.md"
+  - "06_OUTPUTS/terra-fibra/traffic/execucao-manual-meta-checklist.md"
+  - "06_OUTPUTS/terra-fibra/traffic/relatorio-meta-ads-demonstracao.html"
+  - "07_LOGS/terra-fibra-approvals.md"
 squad_manifest: "[A DEFINIR apos escolher cliente piloto]"
 whatsapp_status: "nao_mapeado_neste_workspace"
-preflight_status: "pendente"
+preflight_status: "pendente_validacao_meta_cli"
 platform: "claude-code"
 install_date: "[AAAA-MM-DD]"
 ```
