@@ -70,7 +70,11 @@ E faz isso conectada ao CLI `meta` oficial, permitindo puxar dados reais e gerar
 ├── tasks/                                # Tasks operacionais
 │   ├── diagnosticar-campanha-meta-cli.md
 │   ├── diagnosticar-google-ads.md
-│   └── operacao-agendada-trafego.md
+│   ├── operacao-agendada-trafego.md
+│   ├── analisar-criativos.md             # DNA do vencedor, lateralizacao, kill list
+│   ├── investigar-queda.md               # Root cause analysis em 6 camadas
+│   ├── escalar-vencedores.md             # ABO/CBO/Oxigenio/horizontal/multi-account
+│   └── espionar-concorrente.md           # Meta Ad Library, swipe, engenharia reversa
 ├── skills/
 │   ├── direct-response-br/SKILL.md       # DR brasileiro: ABO, CBO, Oxigênio, kill criteria
 │   ├── direct-response-tiktok/SKILL.md   # Diagnóstico e experimentação TikTok DR
