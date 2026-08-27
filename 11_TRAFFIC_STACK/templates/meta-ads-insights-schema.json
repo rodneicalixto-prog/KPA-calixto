@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "platform": "meta_ads",
+  "mode": "read_only",
+  "account_id_masked": "***0000",
+  "window": {"start": "AAAA-MM-DD", "end": "AAAA-MM-DD", "timezone": "America/Sao_Paulo"},
+  "attribution": {"result_type": "messaging_conversation_started", "definition_confirmed": false},
+  "safety": {
+    "contains_credentials": false,
+    "contains_personal_data": false,
+    "platform_writes_allowed": false,
+    "human_approval_required": true
+  },
+  "campaigns": [
+    {
+      "campaign_name": "[NOME]",
+      "campaign_id_masked": "***0000",
+      "status": "paused",
+      "spend_brl": 0.0,
+      "impressions": 0,
+      "reach": 0,
+      "link_clicks": 0,
+      "results": 0
+    }
+  ]
+}

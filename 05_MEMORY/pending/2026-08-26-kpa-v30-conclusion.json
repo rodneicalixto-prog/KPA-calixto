@@ -1,0 +1,19 @@
+{
+  "project": "KPA V30",
+  "task_id": "kpa-v30-core-conclusion",
+  "title": "Conclusão do core distribuível do KPA V30",
+  "summary": "Core, release pública e validações concluídos; Traffic Stack preservada para uma ação específica posterior.",
+  "result": "Distribuição validada, defaults de segurança ativos e documentação pública disponível.",
+  "worked": "Contratos read-only, gates automatizados, testes, manifestos e release pública.",
+  "failed": "Integrações externas de anúncios continuam pendentes; a gravação no vault Obsidian foi confirmada manualmente no Windows em 26/08/2026.",
+  "decision": "Priorizar em seguida a integração Codex com Meta Ads e Google Ads, métricas de decisão e automação de tarefas; planejar mídia paga com calma por ação específica.",
+  "next_action": "Abrir um plano separado para Codex x Meta Ads x Google Ads em leitura, métricas, decisões e scheduler.",
+  "links": [
+    "KIT_STATUS",
+    "KPA V30/Traffic Stack",
+    "KPA V30/Automation Stack",
+    "KPA V30/Codex Ads Metrics Automation"
+  ],
+  "gate_status": "approved_with_concerns",
+  "contains_credentials": false
+}

@@ -75,3 +75,13 @@ Bloqueia ativacao real quando:
 - depende de credencial nao validada;
 - nao tem plano de rollback.
 
+## Preflight Codex para Ads
+
+A Fase 0 pode ser auditada sem acessar Meta ou Google:
+
+```bash
+python3 18_AUTOMATION_STACK/tools/preflight_codex_ads_runtime.py \
+  05_WORKSPACE/codex-ads-runtime.json --repo-root . --apply
+```
+
+O relatório apenas valida runtime, caminhos, referências de ambiente e defaults de segurança. As duas plataformas permanecem desativadas.
