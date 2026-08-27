@@ -15,6 +15,16 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 MASKED_ID = re.compile(r"^\*{3}\d{4}$")
 STATUSES = {"active", "paused", "archived", "unknown"}
+PORTABLE_IANA_TIMEZONES = frozenset({"America/Sao_Paulo", "Etc/UTC", "UTC"})
+
+
+def is_supported_timezone(value: str) -> bool:
+    """Valida IANA usando o SO e preserva os timezones do kit sem tzdata."""
+    try:
+        ZoneInfo(value)
+        return True
+    except (ZoneInfoNotFoundError, ValueError):
+        return value in PORTABLE_IANA_TIMEZONES
 
 
 def validate_payload(value: Any) -> list[str]:
@@ -42,10 +52,8 @@ def validate_payload(value: Any) -> list[str]:
         if not isinstance(timezone, str) or not timezone.strip():
             errors.append("window.timezone: obrigatório")
         else:
-            try:
-                ZoneInfo(timezone)
-            except (ZoneInfoNotFoundError, ValueError):
-                errors.append("window.timezone: identificador IANA inválido")
+            if not is_supported_timezone(timezone):
+                errors.append("window.timezone: identificador IANA inválido ou não suportado")
     attribution = value.get("attribution")
     if not isinstance(attribution, dict) or not isinstance(attribution.get("definition_confirmed"), bool):
         errors.append("attribution.definition_confirmed: booleano obrigatório")

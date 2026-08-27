@@ -4,18 +4,36 @@
 from __future__ import annotations
 
 import json
+import importlib.util
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
+from zoneinfo import ZoneInfoNotFoundError
 
 
 STACK = Path(__file__).resolve().parents[1]
 INITIALIZER = STACK / "tools" / "init_traffic_client.py"
+SPEC = importlib.util.spec_from_file_location("init_traffic_client", INITIALIZER)
+assert SPEC and SPEC.loader
+INITIALIZER_MODULE = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(INITIALIZER_MODULE)
 
 
 class InitTrafficClientTests(unittest.TestCase):
+    def test_accepts_default_timezone_when_windows_has_no_tzdata(self) -> None:
+        with patch.object(
+            INITIALIZER_MODULE,
+            "ZoneInfo",
+            side_effect=ZoneInfoNotFoundError("missing"),
+        ):
+            errors = INITIALIZER_MODULE.validate_inputs(
+                "cliente-demo", "Cliente Demo", "America/Sao_Paulo", "BRL", "1234"
+            )
+        self.assertEqual(errors, [])
+
     def command(self, root: Path, *extra: str) -> list[str]:
         return [
             sys.executable,
@@ -110,4 +128,3 @@ class InitTrafficClientTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -11,6 +11,8 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
+from zoneinfo import ZoneInfoNotFoundError
 
 
 MODULE_PATH = Path(__file__).resolve().parents[1] / "tools" / "validate_google_ads_export.py"
@@ -73,6 +75,11 @@ def valid_payload() -> dict:
 class ValidateGoogleAdsExportTests(unittest.TestCase):
     def test_accepts_consistent_read_only_export(self) -> None:
         self.assertEqual(VALIDATOR.validate_payload(valid_payload()), [])
+
+    def test_accepts_default_timezone_when_windows_has_no_tzdata(self) -> None:
+        with patch.object(VALIDATOR, "ZoneInfo", side_effect=ZoneInfoNotFoundError("missing")):
+            errors = VALIDATOR.validate_payload(valid_payload())
+        self.assertFalse(any("timezone" in error for error in errors), errors)
 
     def test_rejects_write_mode_and_unsafe_flags(self) -> None:
         payload = valid_payload()

@@ -20,6 +20,16 @@ SCHEDULE_TEMPLATE = STACK / "templates" / "schedule-runtime-template.json"
 SLUG_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 CURRENCY_PATTERN = re.compile(r"^[A-Z]{3}$")
 ACCOUNT_SUFFIX_PATTERN = re.compile(r"^\d{4}$")
+PORTABLE_IANA_TIMEZONES = frozenset({"America/Sao_Paulo", "Etc/UTC", "UTC"})
+
+
+def is_supported_timezone(value: str) -> bool:
+    """Valida IANA usando o SO e preserva os timezones do kit sem tzdata."""
+    try:
+        ZoneInfo(value)
+        return True
+    except (ZoneInfoNotFoundError, ValueError):
+        return value in PORTABLE_IANA_TIMEZONES
 
 
 def validate_inputs(
@@ -34,10 +44,8 @@ def validate_inputs(
         errors.append("slug: use letras minúsculas, números e hífens, sem caminhos")
     if not name.strip() or any(character in name for character in "\r\n"):
         errors.append("name: nome público não vazio e em uma linha")
-    try:
-        ZoneInfo(timezone)
-    except (ZoneInfoNotFoundError, ValueError):
-        errors.append("timezone: identificador IANA inválido")
+    if not is_supported_timezone(timezone):
+        errors.append("timezone: identificador IANA inválido ou não suportado")
     if not CURRENCY_PATTERN.fullmatch(currency):
         errors.append("currency: use três letras maiúsculas")
     if account_suffix is not None and not ACCOUNT_SUFFIX_PATTERN.fullmatch(account_suffix):

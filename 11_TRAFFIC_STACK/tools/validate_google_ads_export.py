@@ -33,6 +33,16 @@ SECRET_KEY_PATTERN = re.compile(
 )
 MASKED_CUSTOMER_ID_PATTERN = re.compile(r"^(?:\*{2,}|x{2,}|X{2,})?\d{4}$")
 MONEY_QUANTUM = Decimal("0.000001")
+PORTABLE_IANA_TIMEZONES = frozenset({"America/Sao_Paulo", "Etc/UTC", "UTC"})
+
+
+def is_supported_timezone(value: str) -> bool:
+    """Valida IANA usando o SO e preserva os timezones do kit sem tzdata."""
+    try:
+        ZoneInfo(value)
+        return True
+    except (ZoneInfoNotFoundError, ValueError):
+        return value in PORTABLE_IANA_TIMEZONES
 
 
 def decimal_value(value: Any, path: str, errors: list[str]) -> Decimal | None:
@@ -88,10 +98,8 @@ def validate_run(run: Any, errors: list[str]) -> None:
     except ValueError:
         errors.append("run.collected_at: timestamp ISO 8601 inválido")
 
-    try:
-        ZoneInfo(str(run.get("timezone", "")))
-    except (ZoneInfoNotFoundError, ValueError):
-        errors.append("run.timezone: timezone IANA inválido")
+    if not is_supported_timezone(str(run.get("timezone", ""))):
+        errors.append("run.timezone: timezone IANA inválido ou não suportado")
 
     currency = str(run.get("currency", ""))
     if not re.fullmatch(r"[A-Z]{3}", currency):

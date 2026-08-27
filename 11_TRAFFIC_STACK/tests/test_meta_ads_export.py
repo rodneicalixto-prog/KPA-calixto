@@ -10,6 +10,8 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
+from zoneinfo import ZoneInfoNotFoundError
 
 
 STACK = Path(__file__).resolve().parents[1]
@@ -39,6 +41,12 @@ class MetaAdsExportTests(unittest.TestCase):
         payload["window"]["timezone"] = "banana"
         errors = module.validate_payload(payload)
         self.assertTrue(any("identificador IANA inválido" in error for error in errors))
+
+    def test_accepts_default_timezone_when_windows_has_no_tzdata(self) -> None:
+        payload = json.loads(FIXTURE.read_text(encoding="utf-8"))
+        with patch.object(module, "ZoneInfo", side_effect=ZoneInfoNotFoundError("missing")):
+            errors = module.validate_payload(payload)
+        self.assertFalse(any("timezone" in error for error in errors), errors)
 
     def test_cli_exit_codes(self) -> None:
         valid = subprocess.run([sys.executable, str(TOOL), str(FIXTURE)], capture_output=True, text=True)
