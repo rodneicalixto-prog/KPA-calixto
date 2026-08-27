@@ -61,7 +61,7 @@ next_action:
 
 - WhatsApp conversacional complexo: consultar `12_WHATSAPP_STACK/`.
 - Tráfego pago/campanha: consultar `11_TRAFFIC_STACK/` antes de qualquer acao.
-- Nicho regulado: consultar `14_NICHE_KITS/` ou diretriz do nicho.
+- Nicho regulado: consultar `14_NICHE_KITS/` (produto futuro — usar apenas se a pasta ja existir no seu kit) ou a diretriz do nicho em `04_DIRETRIZES/nichos/` (fonte primaria hoje).
 - Processo recorrente do cliente: atualizar `squad-manifest.yaml` quando existir.
 
 ## Gate

@@ -27,9 +27,13 @@
 
 ## Problemas com os Agentes
 
-### 6. Agente não aparece quando digito o comando
-**Causa:** Arquivos dos agentes não estão na pasta certa.
-**Solução:** Verifique se a pasta `.claude/agents/` existe no seu projeto e contém os arquivos .md dos agentes.
+### 6. Comando `/nome` não é reconhecido
+**Causa:** Falta o arquivo wrapper do comando na pasta certa, ou você digitou um nome diferente do esperado.
+**Solução:** Confira a lista completa de comandos e palavras-chave em `22_CLAUDE_DESKTOP/commands-keywords.md`. No Claude Code, cada comando `/nome` precisa de um arquivo em `.claude/commands/nome.md` (já vem pronto no kit); se você clonou uma versão antiga, rode `/instalar-kpa30` de novo ou copie a pasta `.claude/` completa do kit atualizado.
+
+### 6b. Quero criar um agente/comando/skill novo que o kit ainda não tem
+**Causa:** Não é um problema — é uma extensão do kit.
+**Solução:** Peça pro Forge: `forge: criar agente especialista em X` (ou "nova skill", "novo comando"). Ele segue os scaffolds de `21_BUILDER_KIT/` e já atualiza os índices certos.
 
 ### 7. Agente dá resposta genérica/ruim
 **Causa:** Falta contexto. O agente precisa de informações pra trabalhar.

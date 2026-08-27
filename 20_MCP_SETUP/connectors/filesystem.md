@@ -3,7 +3,7 @@
 ## Setup
 
 ```bash
-claude mcp add filesystem --command "npx -y @modelcontextprotocol/server-filesystem /caminho/permitido"
+claude mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem /caminho/permitido
 ```
 
 Substitua `/caminho/permitido` pela raiz onde o mentorado quer dar acesso (ex: pasta do kit + pasta de clientes).
@@ -11,7 +11,7 @@ Substitua `/caminho/permitido` pela raiz onde o mentorado quer dar acesso (ex: p
 Multiplas pastas:
 
 ```bash
-claude mcp add filesystem --command "npx -y @modelcontextprotocol/server-filesystem /Users/mentorado/Kit-Piloto-Automatico-V30 /Users/mentorado/Clientes"
+claude mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem /Users/mentorado/Kit-Piloto-Automatico-V30 /Users/mentorado/Clientes
 ```
 
 ## Por que usar

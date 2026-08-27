@@ -1,12 +1,12 @@
-# Guia de Referência Rápida | Kit Piloto Automático com IA
+# Guia de Referência Rápida | Kit Piloto Automático V30
 
-## Instalação (15 minutos)
+## Instalação (15-20 minutos)
 
-### Passo 1: Instalar o Claude Code
+### Passo 1: Instalar o Node.js e o Claude Code
 ```bash
+node --version   # precisa ser v18 ou maior; se faltar, instale em nodejs.org
 npm install -g @anthropic-ai/claude-code
 ```
-Se der erro de permissão no Windows, abra o terminal como Administrador.
 
 ### Passo 2: Fazer login
 ```bash
@@ -14,28 +14,24 @@ claude login
 ```
 Vai abrir o navegador. Faça login com sua conta Anthropic.
 
-### Passo 3: Copiar os agentes
-Copie a pasta `agentes/` pra dentro do seu projeto:
+### Passo 3: Rodar o wizard de instalação
+Dentro da pasta do kit:
 ```bash
-cp -r agentes/ seu-projeto/.claude/agents/
-```
-
-### Passo 4: Copiar os templates
-Copie a pasta `templates/` pra qualquer lugar do seu computador. Recomendo:
-```
-Documentos/kit-piloto-automatico/templates/
-```
-
-### Passo 5: Testar
-```bash
-cd seu-projeto
+cd kit-piloto-automatico-v30
 claude
 ```
 Dentro do Claude Code, digite:
 ```
-/briefing-agent
+instalar kpa30
 ```
-Se aparecer o agente, está tudo instalado.
+Isso aciona o wizard único (`/instalar-kpa30`), que cobre em ~15-20 min: dependências, `.env`, MCPs, onboarding do seu negócio e a primeira entrega. **Não precisa copiar pasta de agente nenhuma manualmente** — os agentes, skills e comandos já vêm prontos em `.claude/agents/` e `.claude/commands/`.
+
+### Passo 4: Testar
+Ainda dentro do wizard (ou depois, a qualquer momento), digite:
+```
+briefing
+```
+Se o comando `/briefing` responder pedindo os dados do cliente, está tudo instalado.
 
 ---
 
@@ -43,46 +39,58 @@ Se aparecer o agente, está tudo instalado.
 
 | O que você quer fazer | Comando |
 |-----------------------|---------|
-| Montar briefing de cliente | `/briefing-agent` |
-| Criar conteúdo/copy | `/criacao-agent` |
-| Revisar o que foi criado | `/revisao-agent` |
-| Formatar pra entrega | `/entrega-agent` |
-| Montar relatório | `/relatorio-agent` |
+| Montar briefing de cliente novo | `/briefing` |
+| Criar conteúdo/copy (ad, email, post, LP) | `/criar` |
+| Revisar o que foi criado | `/revisar` |
+| Empacotar e entregar | `/entregar` |
+| Montar relatório de performance | `/relatorio` |
+| Montar proposta comercial | `/proposta` |
+| Onboardar cliente novo (pós-fechamento) | `/onboarding` |
+| Mensagem de follow-up | `/follow-up` |
+| Diagnosticar operação/campanha | `/diagnostico` |
+| Automatizar um processo | `/automatizar-processo` |
+| Configurar WhatsApp/Cowork | `/whatsapp-system` |
+| Conectar MCPs (Drive, Slack, etc.) | `/mcp-setup` |
+| Classificar nicho do negócio | `/setup-nicho` |
+| Criar agente/skill/comando novo | `forge: <o que você precisa>` |
+
+A lista completa (com as palavras-chave equivalentes no Claude Desktop, sem `/`) está em `22_CLAUDE_DESKTOP/commands-keywords.md`.
 
 ---
 
 ## Como Usar os Templates
 
-1. Abra a pasta `templates/` no seu computador
-2. Escolha seu segmento (tráfego, social media, designer, videomaker)
-3. Copie o template que precisa
-4. Preencha os campos marcados com `[PREENCHER]`
-5. Entregue pro cliente
+1. Pra template operacional (contexto, estado, entrega de cliente): pasta `10_TEMPLATES_OPERACIONAIS/`.
+2. Pra template de release simples (designer, geral, gestão): pasta `templates/` na raiz do kit.
+3. Copie o template que precisa.
+4. Preencha os campos marcados com `[A PREENCHER]`.
+5. Entregue pro cliente.
 
 ---
 
 ## Como Usar os Prompts
 
-1. Abra a pasta `prompts/`
-2. Escolha a categoria (briefing, criação, revisão, relatório, whatsapp)
-3. Copie o prompt que precisa
-4. Cole no Claude Code, Claude ou ChatGPT
-5. Substitua os placeholders ([NOME DO CLIENTE], [NICHO], etc.)
-6. Use o resultado
+1. Abra a pasta `prompts/` na raiz do kit.
+2. Escolha o prompt (briefing, criação, revisão, relatório, whatsapp).
+3. Copie o prompt que precisa.
+4. Cole no Claude Code, Claude Desktop ou outra IA.
+5. Substitua os placeholders (`[NOME DO CLIENTE]`, `[NICHO]`, etc.).
+6. Use o resultado.
 
 ---
 
 ## Automação de WhatsApp
 
-1. Configure seguindo o guia em `docs/setup-whatsapp.md`
-2. Conecte seu número
-3. Ative os fluxos (atendimento, follow-up, onboarding)
-4. Os fluxos rodam sozinhos 24h
+1. Configure seguindo o guia em `docs/setup-whatsapp.md`.
+2. Conecte seu número.
+3. Ative os fluxos com `/whatsapp-system` (atendimento, follow-up, onboarding).
+4. Os fluxos ficam em modo `draft` até você confirmar a ativação real.
 
 ---
 
 ## Precisa de Ajuda?
 
-- Consulte o `troubleshooting.md` pra problemas comuns
-- Consulte o `glossario.md` pra termos que não conhece
-- Consulte o `faq.md` pra perguntas frequentes
+- Consulte `docs/troubleshooting.md` pra problemas comuns.
+- Consulte `docs/glossario.md` pra termos que não conhece.
+- Consulte `docs/faq.md` pra perguntas frequentes.
+- Peça `"que comando eu uso pra isso?"` — o CoS sugere.

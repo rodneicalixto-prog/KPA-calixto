@@ -43,7 +43,7 @@ Se confirmado:
 3. Roda:
 
 ```bash
-claude mcp add rube --command "npx -y @composio/rube-mcp"
+claude mcp add --transport http rube https://rube.app/mcp
 ```
 
 4. Valida: `claude mcp list` — espera ver `rube`.
@@ -65,7 +65,7 @@ cd whatsapp-mcp && npm install
 3. Adiciona:
 
 ```bash
-claude mcp add whatsapp --command "node $HOME/mcps/whatsapp-mcp/index.js"
+claude mcp add whatsapp -- node $HOME/mcps/whatsapp-mcp/index.js
 ```
 
 4. Pede mentorado pegar celular.
@@ -81,7 +81,7 @@ Se confirmado:
 2. Adiciona com escopo:
 
 ```bash
-claude mcp add filesystem --command "npx -y @modelcontextprotocol/server-filesystem $PASTA_KIT $PASTA_CLIENTES"
+claude mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem $PASTA_KIT $PASTA_CLIENTES
 ```
 
 ### Passo 6 — Setup Playwright
@@ -89,7 +89,7 @@ claude mcp add filesystem --command "npx -y @modelcontextprotocol/server-filesys
 Se confirmado:
 
 ```bash
-claude mcp add playwright --command "npx -y @modelcontextprotocol/server-playwright"
+claude mcp add playwright -- npx -y @modelcontextprotocol/server-playwright
 ```
 
 Valida: `claude mcp list`.

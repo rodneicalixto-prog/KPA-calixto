@@ -3,7 +3,7 @@
 ## Setup
 
 ```bash
-claude mcp add github --command "npx -y @modelcontextprotocol/server-github"
+claude mcp add github -- npx -y @modelcontextprotocol/server-github
 ```
 
 Variavel:

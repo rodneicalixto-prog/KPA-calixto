@@ -28,7 +28,7 @@ Não. Tudo é copiar e colar. O guia é visual, passo a passo. Se sabe instalar 
 ## Agentes IA
 
 ### 8. Os agentes funcionam com ChatGPT?
-Os agentes foram feitos pro Claude Code. Os prompts da biblioteca funcionam em qualquer IA (Claude, ChatGPT, Gemini). Os agentes especificamente precisam do Claude Code.
+Os agentes foram feitos pro ecossistema Claude — hoje rodam tanto no **Claude Code** (terminal, com automação completa) quanto no **Claude Desktop** (app, via Projects — sem precisar de terminal; ver `22_CLAUDE_DESKTOP/README.md`). Os prompts da biblioteca funcionam em qualquer IA (Claude, ChatGPT, Gemini), mas os agentes/skills do kit especificamente precisam de um desses dois.
 
 ### 9. Quanto gasto de tokens por mês usando os agentes?
 Depende do uso. Em média, um gestor que usa os agentes diariamente gasta entre US$20-50/mês. Tarefas simples gastam pouco. Tarefas complexas (relatórios longos, criação de conteúdo extenso) gastam mais.
@@ -37,7 +37,7 @@ Depende do uso. Em média, um gestor que usa os agentes diariamente gasta entre 
 Não automaticamente. Mas você pode personalizar os agentes editando os arquivos .md. Quanto mais contexto você colocar sobre seu nicho e seus clientes, melhores os resultados.
 
 ### 11. Posso criar meus próprios agentes?
-Sim. Os agentes são arquivos .md. Você pode copiar um existente e adaptar pra sua necessidade. O README explica a estrutura.
+Sim, e a forma recomendada é pedir pro **Forge** (o agente construtor do kit): `forge: criar agente especialista em X`. Ele monta o agente seguindo o padrão do kit e já atualiza os índices certos. Se preferir fazer manualmente, os agentes são arquivos .md em `02_AGENTS/` (e nas stacks especializadas) — veja `21_BUILDER_KIT/README.md` e `21_BUILDER_KIT/conventions.md` pra estrutura e convenções.
 
 ### 12. Os agentes funcionam offline?
 Não. Precisam de internet pra se comunicar com os servidores da Anthropic.

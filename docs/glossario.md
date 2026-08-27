@@ -10,7 +10,7 @@
 
 ## B
 
-**Briefing** — Documento que resume tudo que precisa saber sobre um projeto. O agente de briefing monta isso automaticamente a partir de perguntas ao cliente.
+**Briefing** — Documento que resume tudo que precisa saber sobre um projeto. O comando `/briefing` monta isso automaticamente a partir de perguntas ao cliente.
 
 ## C
 
@@ -23,6 +23,8 @@
 **CPL** — Custo por lead. Quanto você gasta pra conseguir um contato. CPL = investimento / número de leads.
 
 **CTA** — Call to Action. O botão ou frase que pede pro cliente fazer algo ("Compre agora", "Agende uma reunião").
+
+**CoS** — Chief of Staff. O agente que recebe qualquer pedido, entende o que você precisa, e roteia pro especialista certo do kit. É o "recepcionista" do V30.
 
 ## D
 
@@ -37,6 +39,12 @@
 **Follow-up** — Mensagem de acompanhamento. Mandar mensagem pro cliente depois de um contato inicial pra manter o relacionamento.
 
 **Fluxo** — Sequência automática de ações. Exemplo: "fluxo de onboarding" = sequência de mensagens que o cliente novo recebe automaticamente.
+
+**Forge** — O agente construtor do kit. Quando você precisa de um agente, comando ou automação nova que o kit ainda não tem, você pede pro Forge (`forge: criar agente especialista em X`).
+
+## G
+
+**Gate** — Um checkpoint de qualidade que toda entrega precisa passar antes de ser considerada pronta (ex: copy sem prova não passa, automação sem teste não passa). Se não passar, o agente corrige antes de te entregar.
 
 ## K
 
@@ -74,7 +82,9 @@
 
 **Segmento** — Área de atuação. No kit: gestor de tráfego, social media, designer, videomaker.
 
-**Squad** — Time/equipe. No contexto do kit, o "squad de agentes" é o seu time de agentes IA.
+**Skill** — Um "modo de trabalho" que o agente carrega quando reconhece o assunto do seu pedido (ex: falar de WhatsApp carrega a skill de conversa por WhatsApp). Você não ativa a skill manualmente — o CoS reconhece pela sua frase.
+
+**Squad** — Time/equipe. No contexto do kit, o "squad de agentes" é o seu time de agentes IA, adaptado por cliente/canal/gargalo.
 
 ## T
 

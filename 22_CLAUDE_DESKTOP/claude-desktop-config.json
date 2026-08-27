@@ -10,9 +10,9 @@
   "mcpServers": {
 
     "_tier_1_composio_rube": {
-      "_description": "Composio Rube — 1000+ apps em 1 install. Cobre Drive, Slack, Notion, Gmail, Linear, HubSpot, Salesforce, etc.",
-      "command": "npx",
-      "args": ["-y", "@composio/rube-mcp"]
+      "_description": "Composio Rube — 1000+ apps em 1 install. Cobre Drive, Slack, Notion, Gmail, Linear, HubSpot, Salesforce, etc. E um servidor HTTP remoto, nao um processo local.",
+      "type": "http",
+      "url": "https://rube.app/mcp"
     },
 
     "_tier_1_whatsapp": {

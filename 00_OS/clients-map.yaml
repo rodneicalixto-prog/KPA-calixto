@@ -1,7 +1,14 @@
 # clients-map.yaml
-# Mapa global de clientes e contas. Sem tokens, sem segredos.
+# Mapa global (cross-cliente) de contas. Sem tokens, sem segredos.
 # act_id, pixel_id e IDs tecnicos podem ser sensiveis operacionalmente; se o operador preferir,
 # manter valores reais no .env/local e usar placeholders aqui.
+#
+# Fonte de verdade do act_id de um cliente especifico: o
+# act-mapping.yaml dentro de 05_WORKSPACE/clientes/<cliente>/ (template
+# em 11_TRAFFIC_STACK/templates/cliente-template/act-mapping.yaml).
+# Este arquivo aqui e um indice global opcional pra quem tem muitos
+# clientes e quer resolver slug -> workspace num lugar so; nao e
+# obrigatorio manter atualizado pra cada cliente funcionar.
 
 clients: []
 

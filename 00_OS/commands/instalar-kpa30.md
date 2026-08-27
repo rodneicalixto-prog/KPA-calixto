@@ -150,19 +150,19 @@ Pra cada selecionado:
 
 ```bash
 # Composio Rube
-claude mcp add rube --command "npx -y @composio/rube-mcp"
+claude mcp add --transport http rube https://rube.app/mcp
 
 # WhatsApp (precisa clone do repo)
 cd ~/mcps 2>/dev/null || mkdir -p ~/mcps && cd ~/mcps
 git clone https://github.com/verygoodplugins/whatsapp-mcp.git
 cd whatsapp-mcp && npm install
-claude mcp add whatsapp --command "node $HOME/mcps/whatsapp-mcp/index.js"
+claude mcp add whatsapp -- node $HOME/mcps/whatsapp-mcp/index.js
 
 # Filesystem
-claude mcp add filesystem --command "npx -y @modelcontextprotocol/server-filesystem $PWD"
+claude mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem $PWD
 
 # Playwright
-claude mcp add playwright --command "npx -y @modelcontextprotocol/server-playwright"
+claude mcp add playwright -- npx -y @modelcontextprotocol/server-playwright
 ```
 
 #### No Desktop
@@ -181,8 +181,8 @@ Abre esse arquivo (com Notepad/TextEdit/VSCode) e cola:
 {
   "mcpServers": {
     "rube": {
-      "command": "npx",
-      "args": ["-y", "@composio/rube-mcp"]
+      "type": "http",
+      "url": "https://rube.app/mcp"
     },
     [outros que voce escolheu]
   }
