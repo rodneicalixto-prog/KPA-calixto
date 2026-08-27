@@ -92,10 +92,17 @@ def audit(config: dict[str, Any], repo_root: Path) -> tuple[dict[str, Any], list
         for platform in ("meta_ads", "google_ads"):
             if platforms.get(platform) != "disabled":
                 errors.append(f"platforms.{platform}: deve permanecer disabled no preflight")
+    refs_pending = any(status == "pending" for status in ref_status.values())
     report = {
         "version": "1.0",
         "checked_at": datetime.now(timezone.utc).isoformat(),
-        "status": "blocked" if errors else "ready_with_external_refs_pending",
+        "status": (
+            "blocked"
+            if errors
+            else "ready_with_external_refs_pending"
+            if refs_pending
+            else "ready"
+        ),
         "python": {"executable": sys.executable, "version": list(sys.version_info[:3])},
         "timezone": timezone_name,
         "paths": resolved_paths,

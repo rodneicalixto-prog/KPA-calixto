@@ -85,3 +85,7 @@ python3 18_AUTOMATION_STACK/tools/preflight_codex_ads_runtime.py \
 ```
 
 O relatório apenas valida runtime, caminhos, referências de ambiente e defaults de segurança. As duas plataformas permanecem desativadas.
+
+Estados possíveis: `ready` quando todas as referências estão configuradas,
+`ready_with_external_refs_pending` quando falta uma referência e `blocked` quando
+algum gate de segurança falha.
