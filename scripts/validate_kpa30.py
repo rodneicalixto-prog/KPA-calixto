@@ -22,6 +22,8 @@ REQUIRED = (
     "KIT_STATUS.json", ".env.example",
     "scripts/obsidian_memory_adapter.py", "scripts/write_obsidian_memory.py",
     "scripts/write-obsidian-memory.ps1", "05_MEMORY/OBSIDIAN-WINDOWS.md",
+    "18_AUTOMATION_STACK/templates/codex-ads-runtime.json",
+    "18_AUTOMATION_STACK/tools/preflight_codex_ads_runtime.py",
 )
 
 

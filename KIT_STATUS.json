@@ -18,6 +18,7 @@
     "builder_kit": "complete",
     "claude_desktop": "complete",
     "obsidian_memory": "configured_and_write_confirmed_on_windows",
+    "ads_automation_runtime": "preflight_installed_platforms_disabled",
     "traffic_stack": "installed_deferred_by_operator"
   },
   "global_safety": {
