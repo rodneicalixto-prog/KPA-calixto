@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "platform": "meta_ads",
+  "mode": "read_only",
+  "account_id_masked": "***0862",
+  "window": {"start": "2026-07-27", "end": "2026-08-25", "timezone": "America/Sao_Paulo"},
+  "attribution": {"result_type": "messaging_conversation_started", "definition_confirmed": false},
+  "safety": {
+    "contains_credentials": false,
+    "contains_personal_data": false,
+    "platform_writes_allowed": false,
+    "human_approval_required": true
+  },
+  "campaigns": [
+    {
+      "campaign_name": "TERRA FIBRA | 500MEGA | TRAFEGO WHATS",
+      "campaign_id_masked": "***1882",
+      "status": "paused",
+      "spend_brl": 25.92,
+      "impressions": 246,
+      "reach": 219,
+      "link_clicks": 7,
+      "results": 4
+    }
+  ]
+}

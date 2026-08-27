@@ -20,3 +20,4 @@ Thumbs.db
 # Logs e workspace de execução (rastro operacional local, não versionar por padrão)
 07_LOGS/*.log
 05_WORKSPACE/tmp/
+05_WORKSPACE/codex-ads-runtime-preflight.json

@@ -1,0 +1,44 @@
+schema_version: "1.0"
+platform: "google_ads"
+mode: "read_only"
+
+run:
+  run_id: "[A_PREENCHER]"
+  collected_at: "[ISO_8601_A_PREENCHER]"
+  window_start: "[AAAA-MM-DD]"
+  window_end: "[AAAA-MM-DD]"
+  timezone: "[A_PREENCHER]"
+  currency: "[ISO_4217_A_PREENCHER]"
+  customer_id_masked: "[ULTIMOS_4_DIGITOS]"
+  source: "[EXPORTADOR_OU_CONECTOR_VALIDADO]"
+
+rows:
+  - level: "campaign"
+    entity_id: "[A_PREENCHER]"
+    entity_name: "[A_PREENCHER]"
+    campaign_id: "[A_PREENCHER]"
+    campaign_name: "[A_PREENCHER]"
+    status: "[A_PREENCHER]"
+    channel_type: "[A_PREENCHER]"
+    impressions: 0
+    clicks: 0
+    cost: 0.0
+    conversions: 0.0
+    conversion_value: 0.0
+    ctr: 0.0
+    average_cpc: 0.0
+    cost_per_conversion: 0.0
+    value_per_cost: 0.0
+
+quality:
+  complete: false
+  totals_reconciled: false
+  conversion_definition_confirmed: false
+  notes: []
+
+safety:
+  contains_credentials: false
+  contains_personal_data: false
+  platform_writes_allowed: false
+  human_approval_required: true
+

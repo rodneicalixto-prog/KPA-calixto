@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "client": "Terra Fibra",
+  "platform": "meta_ads",
+  "state_file": "traffic-state.json",
+  "jobs": [],
+  "safety": {
+    "read_only": true,
+    "allow_platform_writes": false,
+    "require_human_approval": true
+  }
+}

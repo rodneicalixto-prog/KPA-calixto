@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "runtime": "codex",
+  "timezone": "America/Sao_Paulo",
+  "paths": {
+    "workspace": "05_WORKSPACE",
+    "outputs": "06_OUTPUTS",
+    "logs": "07_LOGS"
+  },
+  "environment_refs": ["KPA_OBSIDIAN_VAULT"],
+  "safety": {
+    "read_only": true,
+    "allow_platform_writes": false,
+    "contains_credentials": false,
+    "require_human_approval": true
+  },
+  "platforms": {
+    "meta_ads": "disabled",
+    "google_ads": "disabled"
+  }
+}
