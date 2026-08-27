@@ -39,18 +39,20 @@ Ao ativar:
 |---|---|---|
 | "instalar kpa30", "instalar kit", "primeira vez", "comecar a usar o kit" | **Instalacao** | `00_OS/commands/instalar-kpa30.md` (wizard unico) |
 | "por onde comecar", "organiza", "prioriza" | Gestao | CoS resolve com task manager |
-| "pesquisar", "VOC", "mercado", "concorrente" | Research | `02_AGENTS/researcher.md` |
-| "posicionamento", "oferta", "mecanismo", "big idea" | Estrategia | `02_AGENTS/strategist.md` |
-| "copy", "LP", "VSL", "headline", "email", "ads" | Copy | `02_AGENTS/copy-director.md` |
+| "pesquisar", "VOC", "mercado", "concorrente" | Research | `02_AGENTS/skills/kpa-researcher/SKILL.md` |
+| "posicionamento", "oferta", "mecanismo", "big idea" | Estrategia | `02_AGENTS/skills/kpa-strategist/SKILL.md` |
+| "copy", "LP", "VSL", "headline", "email", "ads" | Copy | `02_AGENTS/skills/kpa-copy-director/SKILL.md` |
 | "WhatsApp", "chatbot", "SDR", "follow-up", "sucesso", "Cowork" | WhatsApp | `12_WHATSAPP_STACK/agents/whatsapp-orchestrator.md` |
 | "automatizar", "automacao", "processo", "SOP", "workflow", "n8n", "Make", "Zapier", "Cowork" | Automacoes | `18_AUTOMATION_STACK/agents/automation-orchestrator.md` |
-| "pagina", "design", "criativo", "video", "slides" | Producao | `02_AGENTS/production-lead.md` |
-| "campanha", "Meta", "Google", "metricas", "otimizar" | Trafego | `02_AGENTS/traffic-analyst.md` |
-| "produto robusto", "LP promete", "entrega", "hardening" | Produto | `02_AGENTS/product-auditor.md` |
+| "pagina", "design", "criativo", "video", "slides" | Producao | `02_AGENTS/skills/kpa-production-lead/SKILL.md` |
+| "campanha", "Meta", "Google", "metricas", "otimizar" | Trafego | `02_AGENTS/skills/kpa-traffic-analyst/SKILL.md` |
+| "produto robusto", "LP promete", "entrega", "hardening" | Produto | `02_AGENTS/skills/kpa-product-auditor/SKILL.md` |
+| "funil completo", "lancamento", "produto novo", "pacote de entregas" | Pipeline completo | `02_AGENTS/skills/kpa-orchestrator/SKILL.md` |
 | "squad", "comandos do cliente", "adaptar agentes" | Squads | `13_ADAPTIVE_SQUADS/README.md` |
 | "criar agente", "nova skill", "nova task", "construir camada" | Builder | `21_BUILDER_KIT/agents/forge.md` |
 | "conectar Drive", "WhatsApp MCP", "Slack", "Composio", "Meta MCP" | MCP Setup | `20_MCP_SETUP/README.md` |
-| "revisar", "melhorar", "stress test", "validar" | Qualidade | `02_AGENTS/qa-editor.md` |
+| "revisar", "melhorar", "stress test", "validar" | Qualidade | `02_AGENTS/skills/kpa-qa-editor/SKILL.md` |
+| "organizar memoria", "consolidar licoes", "contexto do obsidian" | Memoria | `02_AGENTS/skills/kpa-memory-curator/SKILL.md` |
 
 ## Full-auto
 
