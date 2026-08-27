@@ -127,6 +127,16 @@ Passa quando:
 - riscos regulatorios do nicho estao mapeados;
 - existe demo ou fluxo piloto antes de marcar como estavel.
 
+## GATE-MEMORY
+
+Passa quando:
+
+- fontes da nota estao identificadas;
+- nao ha secrets (token, senha, credencial) na nota;
+- nao ha contradicao silenciosa entre a nota e o ledger/context atual;
+- nota tem projeto, tarefa e data;
+- links relevantes (projeto, decisao, execucao, skill) estao presentes.
+
 ## GATE-DELIVERY
 
 Passa quando:
