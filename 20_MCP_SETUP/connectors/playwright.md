@@ -3,7 +3,7 @@
 ## Setup
 
 ```bash
-claude mcp add playwright --command "npx -y @modelcontextprotocol/server-playwright"
+claude mcp add playwright -- npx -y @modelcontextprotocol/server-playwright
 ```
 
 ## Tools

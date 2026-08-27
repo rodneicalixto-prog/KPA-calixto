@@ -7,7 +7,7 @@ Slack **via Rube** (`connectors/composio-rube.md`) cobre 100% dos casos: enviar 
 ## Alternativa: MCP nativo
 
 ```bash
-claude mcp add slack --command "npx -y @modelcontextprotocol/server-slack"
+claude mcp add slack -- npx -y @modelcontextprotocol/server-slack
 ```
 
 Variavel de ambiente:

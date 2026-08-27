@@ -11,7 +11,7 @@ Se quiser MCP nativo (sem depender da Composio):
 ### Setup
 
 ```bash
-claude mcp add gdrive --command "npx -y @modelcontextprotocol/server-gdrive"
+claude mcp add gdrive -- npx -y @modelcontextprotocol/server-gdrive
 ```
 
 Antes precisa autenticar:

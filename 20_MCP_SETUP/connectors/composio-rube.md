@@ -21,7 +21,7 @@
 
 ```bash
 # Adiciona o MCP do Rube
-claude mcp add rube --command "npx -y @composio/rube-mcp"
+claude mcp add --transport http rube https://rube.app/mcp
 ```
 
 OU editar `~/.claude.json` manualmente:
@@ -30,8 +30,8 @@ OU editar `~/.claude.json` manualmente:
 {
   "mcpServers": {
     "rube": {
-      "command": "npx",
-      "args": ["-y", "@composio/rube-mcp"]
+      "type": "http",
+      "url": "https://rube.app/mcp"
     }
   }
 }

@@ -51,8 +51,8 @@
 
 | Arquivo | Quando |
 |---|---|
-| `briefing-agent.md` (ainda nao existe — criar via Forge se precisar) | Briefing |
-| `criacao-agent.md` (ainda nao existe — criar via Forge se precisar) | Criacao |
+| `00_OS/commands/briefing.md` | Briefing (comando `/briefing`) |
+| `00_OS/commands/criar.md` | Criacao (comando `/criar`) |
 | `exemplos/familias/agencia-servico-digital.md` | Se for agencia |
 | `exemplos/familias/clinica-saude.md` | Se for clinica |
 | (escolher a familia certa do mentorado) | |

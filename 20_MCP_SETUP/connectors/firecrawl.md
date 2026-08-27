@@ -3,7 +3,7 @@
 ## Setup
 
 ```bash
-claude mcp add firecrawl --command "npx -y @firecrawl/mcp-server"
+claude mcp add firecrawl -- npx -y @firecrawl/mcp-server
 ```
 
 API key obrigatoria:

@@ -26,7 +26,7 @@
 ### Passo 2 — Adicionar no Claude Code
 
 ```bash
-claude mcp add <nome> --command "..."
+claude mcp add <nome> -- ...
 ```
 
 OU em `~/.claude.json`:

@@ -34,7 +34,7 @@ npm install -g @verygoodplugins/whatsapp-mcp
 ### Passo 2 — Adicionar no Claude Code
 
 ```bash
-claude mcp add whatsapp --command "node /caminho/pra/whatsapp-mcp/index.js"
+claude mcp add whatsapp -- node /caminho/pra/whatsapp-mcp/index.js
 ```
 
 OU em `~/.claude.json`:
