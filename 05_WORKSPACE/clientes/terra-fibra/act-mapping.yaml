@@ -1,0 +1,7 @@
+client: "terra-fibra"
+ad_accounts:
+  - label: "principal"
+    act_id: "masked-0862"
+    currency: "BRL"
+    timezone: "America/Sao_Paulo"
+    status: "link_recebido_pendente_validacao_cli"

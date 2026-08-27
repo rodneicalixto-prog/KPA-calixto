@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Análise de criativos — {{CLIENTE}}</title>
+  <style>
+    :root{--ink:#171923;--muted:#687080;--line:#e5e7eb;--accent:#7c3aed;--wash:#f8f7ff}*{box-sizing:border-box}body{margin:0;background:#f5f5f6;color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif}main{width:min(1120px,calc(100% - 32px));margin:32px auto;background:#fff;padding:40px;border-radius:16px}header{border-bottom:3px solid var(--accent);padding-bottom:22px}h1{font-size:30px;margin:0}h2{font-size:20px;margin:30px 0 12px}.meta{color:var(--muted)}.summary{padding:18px;background:var(--wash);border-radius:10px}.creative{display:grid;grid-template-columns:140px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}.thumb{min-height:120px;background:var(--wash);display:grid;place-items:center;border:1px dashed #b9afcf;border-radius:8px;color:var(--muted)}.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.metric{padding:10px;border:1px solid var(--line);border-radius:8px}.metric strong{display:block;font-size:18px}table{width:100%;border-collapse:collapse}th,td{padding:10px;text-align:left;border-bottom:1px solid var(--line)}th{background:var(--wash)}footer{margin-top:34px;color:var(--muted);font-size:12px}@media(max-width:760px){main{width:100%;margin:0;padding:22px}.creative{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}table{display:block;overflow:auto}}@media print{body{background:#fff}main{width:100%;margin:0;padding:0}}
+  </style>
+</head>
+<body><main>
+  <header><p class="meta">TRAFFIC STACK · CRIATIVOS</p><h1>{{CLIENTE}}</h1><p>{{JANELA_ANALISE}} · Gerado em {{DATA_GERACAO}}</p></header>
+  <h2>Leitura executiva</h2><div class="summary">{{RESUMO_EXECUTIVO}}</div>
+  <h2>Ranking</h2><table><thead><tr><th>#</th><th>Criativo</th><th>Gasto</th><th>Hook rate</th><th>CTR</th><th>CPA</th><th>ROAS</th><th>Decisão</th></tr></thead><tbody>{{RANKING_ROWS}}</tbody></table>
+  <h2>Detalhes dos criativos</h2>{{CREATIVE_CARDS}}
+  <!-- Estrutura sugerida para CREATIVE_CARDS: <article class="creative"><div class="thumb">{{THUMBNAIL}}</div><div><h3>{{CRIATIVO}}</h3><div class="metrics">...</div><p>{{LEITURA}}</p></div></article> -->
+  <h2>Padrões vencedores</h2><p>{{PADROES_VENCEDORES}}</p>
+  <h2>Próximas variações</h2><table><thead><tr><th>Prioridade</th><th>DNA preservado</th><th>Elemento alterado</th><th>Hipótese</th><th>Guardrail</th></tr></thead><tbody>{{VARIATION_ROWS}}</tbody></table>
+  <h2>Lacunas</h2><p>{{LACUNAS}}</p>
+  <footer>Fonte: {{FONTES_DADOS}} · Exigir volume mínimo declarado antes de classificar um vencedor. Publicação e mudanças de verba dependem de aprovação humana.</footer>
+</main></body></html>

@@ -78,6 +78,7 @@ Usuario
 - `13_ADAPTIVE_SQUADS/README.md` - squads adaptativos e manifest por cliente.
 - `15_PRODUCT_RELEASE/COMECE_AQUI.md` - entrada publica para usuario leigo.
 - `18_AUTOMATION_STACK/README.md` - agente de automacoes e blueprints de processo.
+- `18_AUTOMATION_STACK/plans/codex-ads-metrics-automation.md` - roadmap read-only Codex x Meta x Google, métricas e scheduler.
 - `20_MCP_SETUP/README.md` - conectores MCP recomendados e como instalar.
 - `21_BUILDER_KIT/README.md` - Forge agent (cria agentes, skills, tasks, diretrizes).
 - `22_CLAUDE_DESKTOP/README.md` - adaptacao pro Claude Desktop (app), Projects, MCPs, palavras-chave.
@@ -109,6 +110,15 @@ Wizard guiado que cobre todas as etapas (~15-20 min):
 7. Gera primeira tarefa util adaptada.
 
 Detalhes em `00_OS/commands/instalar-kpa30.md`.
+
+## Validar o kit completo
+
+```bash
+python3 scripts/validate_kpa30.py
+python3 -m unittest scripts/test_validate_kpa30.py
+```
+
+O status consolidado e os defaults de segurança ficam em `KIT_STATUS.json`.
 
 ## Setup avancado (manual)
 

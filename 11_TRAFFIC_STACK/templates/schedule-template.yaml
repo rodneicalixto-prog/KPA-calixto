@@ -1,0 +1,36 @@
+version: "1.0"
+status: "draft"
+client: "[A_PREENCHER]"
+timezone: "America/Sao_Paulo"
+
+jobs:
+  - id: "daily_health"
+    enabled: false
+    schedule: "[CRON_A_PREENCHER]"
+    mode: "daily_health"
+    lookback: "last_1d"
+    read_only: true
+    output_dir: "06_OUTPUTS/[CLIENTE]/traffic"
+    owner: "[A_PREENCHER]"
+    retries:
+      max_attempts: 3
+      backoff: "[A_PREENCHER]"
+
+  - id: "weekly_review"
+    enabled: false
+    schedule: "[CRON_A_PREENCHER]"
+    mode: "weekly_review"
+    lookback: "last_7d"
+    read_only: true
+    output_dir: "06_OUTPUTS/[CLIENTE]/traffic"
+    owner: "[A_PREENCHER]"
+    retries:
+      max_attempts: 3
+      backoff: "[A_PREENCHER]"
+
+safety:
+  allow_platform_writes: false
+  require_human_approval: true
+  secrets_source: "[ENV_OU_SECRET_STORE]"
+  pii_in_logs: false
+
