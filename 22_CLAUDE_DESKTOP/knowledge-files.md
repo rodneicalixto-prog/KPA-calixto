@@ -32,6 +32,21 @@
 | 17 | `21_BUILDER_KIT/README.md` | Forge agent |
 | 18 | `15_PRODUCT_RELEASE/PRIMEIRA_TAREFA.md` | Primeira entrega |
 
+### Tier 2b — Skills do time core (adicionadas na instalacao)
+
+| # | Arquivo | Por que |
+|---|---|---|
+| 19 | `02_AGENTS/skills/kpa-cos/SKILL.md` | Entry point de qualquer pedido |
+| 20 | `02_AGENTS/skills/kpa-strategist/SKILL.md` | Tese/mecanismo antes de copy |
+| 21 | `02_AGENTS/skills/kpa-researcher/SKILL.md` | VOC antes de estrategia |
+| 22 | `02_AGENTS/skills/kpa-copy-director/SKILL.md` | Copy a partir de estrategia aprovada |
+| 23 | `02_AGENTS/skills/kpa-production-lead/SKILL.md` | Copy aprovada -> assets |
+| 24 | `02_AGENTS/skills/kpa-traffic-analyst/SKILL.md` | Launch review e operacao semanal |
+| 25 | `02_AGENTS/skills/kpa-product-auditor/SKILL.md` | Promessa da LP vs entrega real |
+| 26 | `02_AGENTS/skills/kpa-qa-editor/SKILL.md` | Gate antes de qualquer entrega final |
+| 27 | `02_AGENTS/skills/kpa-orchestrator/SKILL.md` | Pipeline completo (funil/lancamento) |
+| 28 | `02_AGENTS/skills/kpa-memory-curator/SKILL.md` | Curadoria de memoria/Obsidian |
+
 ### Tier 3 — Opcionais (use os que sobrarem)
 
 | Arquivo | Quando |

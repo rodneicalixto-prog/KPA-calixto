@@ -17,6 +17,26 @@ O V30 reduz o time para poucos papeis fortes. A meta e evitar carregar 30 agente
 | Automation Architect | automacoes de processo, SOPs, blueprints e ativacao segura |
 | QA Editor | gates, revisao, stress test |
 
+## Skills instaladas
+
+Cada agente do time acima (exceto Automation Architect, ja coberto por
+`18_AUTOMATION_STACK/skills/process-automation-design/SKILL.md`) tem uma
+Skill ativavel por trigger de frase, validada contra sua task, diretriz,
+gate e handoff correspondentes:
+
+| Skill | Agente | Task | Gate |
+|---|---|---|---|
+| `skills/kpa-cos/SKILL.md` | CoS | T00, T07 | GATE-INTAKE |
+| `skills/kpa-orchestrator/SKILL.md` | KPA Orchestrator | pipeline (01_PIPELINE) | GATE-INTAKE..GATE-DELIVERY |
+| `skills/kpa-researcher/SKILL.md` | Researcher | T01 | GATE-RESEARCH |
+| `skills/kpa-strategist/SKILL.md` | Strategist | T02 | GATE-STRATEGY |
+| `skills/kpa-copy-director/SKILL.md` | Copy Director | T03 | GATE-COPY |
+| `skills/kpa-production-lead/SKILL.md` | Production Lead | T04 | GATE-PRODUCTION |
+| `skills/kpa-traffic-analyst/SKILL.md` | Traffic Analyst | T05, T06 | GATE-TRAFFIC |
+| `skills/kpa-product-auditor/SKILL.md` | Product Auditor | T08 | GATE-PRODUCT |
+| `skills/kpa-qa-editor/SKILL.md` | QA Editor | gate dinamico | conforme output |
+| `skills/kpa-memory-curator/SKILL.md` | KPA Memory Curator | — | GATE-MEMORY |
+
 ## Camadas especializadas
 
 | Camada | Quando usar |

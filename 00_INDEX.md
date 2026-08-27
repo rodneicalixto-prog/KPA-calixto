@@ -53,6 +53,8 @@ Usuario
 | Pagina, criativo, video, pacote visual | Production Lead | production-balanced |
 | Campanha, metricas, diagnostico | Traffic Analyst | analytics-balanced |
 | Produto robusto, LP vs entrega, promessa | Product Auditor | reviewer-frontier |
+| Funil completo, lancamento, produto novo | KPA Orchestrator | strategy-frontier |
+| Organizar memoria, consolidar licoes, Obsidian | KPA Memory Curator | router-cheap |
 | Squads, comandos por cliente, adaptacao | CoS + Adaptive Squads | router-cheap |
 | "criar agente", "nova skill", "nova diretriz", "construir camada" | Forge (Builder) | strategy-frontier |
 | Conectar Drive/WhatsApp/Slack/Meta/CRM | CoS + MCP Setup | router-cheap |

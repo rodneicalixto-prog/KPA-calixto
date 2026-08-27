@@ -40,4 +40,4 @@ install_date: "[AAAA-MM-DD]"
 
 Este arquivo deve permanecer curto. Se ficar grande, criar resumo e arquivar detalhes no projeto correspondente.
 
-> **Primeiro uso?** Rode `/instalar-kpa30` pra fazer o setup completo do kit (dependencias, .env, MCPs, onboarding do seu negocio e primeira tarefa).
+> **Instalação do kit (`/instalar-kpa30`) concluída em 2026-08-27.** Perfil da agência (Calixto Soluções) salvo em `.claude/config.md`. Este arquivo permanece com o estado do projeto Terra Fibra em andamento.
