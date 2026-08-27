@@ -19,7 +19,7 @@ Cobre:
 ```text
 Pega leads no HubSpot que receberam proposta ha +5 dias sem resposta.
 Pra cada um, monta email de follow-up usando template
-`15_PRODUCT_RELEASE/prompts/05-whatsapp.md` (adaptado pra email).
+`prompts/05-whatsapp.md` (adaptado pra email).
 Salva como rascunho no Gmail pra eu revisar.
 ```
 

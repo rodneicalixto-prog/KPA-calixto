@@ -324,8 +324,8 @@ created_at: "<data>"
 
 ## Arquivos do kit adaptados
 
-- Familia operacional: `15_PRODUCT_RELEASE/exemplos/familias/<familia>.md`
-- Preset (se houver): `15_PRODUCT_RELEASE/nichos/<nicho>/`
+- Familia operacional: `exemplos/familias/<familia>.md`
+- Preset (se houver): `nichos/<nicho>/`
 - Squad inicial: `13_ADAPTIVE_SQUADS/`
 ```
 
@@ -344,7 +344,7 @@ status: "onboarded"
 proxima_task: "primeira-tarefa"
 arquivos_relevantes:
   - ".claude/config.md"
-  - "15_PRODUCT_RELEASE/exemplos/familias/<familia>.md"
+  - "exemplos/familias/<familia>.md"
 squad_manifest: "[A PREENCHER quando cliente piloto for definido]"
 whatsapp_status: "<nao_mapeado | sera_mapeado | nao_aplica>"
 preflight_status: "instalacao_concluida"

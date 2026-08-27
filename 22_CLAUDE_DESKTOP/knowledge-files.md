@@ -14,9 +14,9 @@
 | 4 | `00_OS/gates.md` | Gates de qualidade |
 | 5 | `00_OS/access-preflight.md` | Preflight de acessos |
 | 6 | `00_OS/proactivity-policy.md` | Politica full-auto |
-| 7 | `15_PRODUCT_RELEASE/CLAUDE.md` | CoS publico V30 |
-| 8 | `15_PRODUCT_RELEASE/nichos/family-classifier.md` | 8 familias operacionais |
-| 9 | `15_PRODUCT_RELEASE/nichos/setup-nicho-playbook.md` | Setup adaptativo |
+| 7 | `15_PRODUCT_RELEASE/COMECE_AQUI.md` | CoS publico V30 |
+| 8 | `nichos/family-classifier.md` | 8 familias operacionais |
+| 9 | `nichos/setup-nicho-playbook.md` | Setup adaptativo |
 | 10 | `13_ADAPTIVE_SQUADS/README.md` | Squads adaptativos |
 
 ### Tier 2 — Recomendados (8 arquivos)
@@ -30,7 +30,7 @@
 | 15 | `20_MCP_SETUP/README.md` | MCPs disponiveis |
 | 16 | `20_MCP_SETUP/recommended-stack.md` | Stack por uso |
 | 17 | `21_BUILDER_KIT/README.md` | Forge agent |
-| 18 | `15_PRODUCT_RELEASE/PRIMEIRA_TAREFA.md` | Primeira entrega |
+| 18 | `15_PRODUCT_RELEASE/GUIA_DE_USO.md` | Como pedir a primeira entrega |
 
 ### Tier 2b — Skills do time core (adicionadas na instalacao)
 
@@ -51,10 +51,10 @@
 
 | Arquivo | Quando |
 |---|---|
-| `15_PRODUCT_RELEASE/.claude/agents/briefing-agent.md` | Briefing |
-| `15_PRODUCT_RELEASE/.claude/agents/criacao-agent.md` | Criacao |
-| `15_PRODUCT_RELEASE/exemplos/familias/agencia-servico-digital.md` | Se for agencia |
-| `15_PRODUCT_RELEASE/exemplos/familias/clinica-saude.md` | Se for clinica |
+| `briefing-agent.md` (ainda nao existe — criar via Forge se precisar) | Briefing |
+| `criacao-agent.md` (ainda nao existe — criar via Forge se precisar) | Criacao |
+| `exemplos/familias/agencia-servico-digital.md` | Se for agencia |
+| `exemplos/familias/clinica-saude.md` | Se for clinica |
 | (escolher a familia certa do mentorado) | |
 
 ## Project 2: Trafego DR
@@ -107,10 +107,10 @@
 | `12_WHATSAPP_STACK/templates/conversation-map.md` |
 | `12_WHATSAPP_STACK/templates/cowork-agent-spec.yaml` |
 | `12_WHATSAPP_STACK/templates/handoff-schema.md` |
-| `15_PRODUCT_RELEASE/whatsapp/fluxos/prospeccao.md` |
-| `15_PRODUCT_RELEASE/whatsapp/fluxos/sdr-atendimento.md` |
-| `15_PRODUCT_RELEASE/cowork/agent-spec.yaml` |
-| `15_PRODUCT_RELEASE/cowork/test-checklist.md` |
+| `12_WHATSAPP_STACK/agents/prospecting-bot.md` |
+| `12_WHATSAPP_STACK/agents/sdr-attendant.md` |
+| `cowork/agent-spec.yaml` |
+| `cowork/test-checklist.md` |
 | `00_OS/gates.md` (GATE-WHATSAPP) |
 
 ## Project 4 (opcional): Automacoes
@@ -125,7 +125,7 @@
 | `18_AUTOMATION_STACK/templates/automation-blueprint.yaml` |
 | `18_AUTOMATION_STACK/templates/sop-template.md` |
 | `04_DIRETRIZES/automation-diretrizes.md` |
-| `15_PRODUCT_RELEASE/exemplos/automacao-onboarding-cliente.md` |
+| `exemplos/automacao-onboarding-cliente.md` |
 
 ## Project 5 (opcional): Builder (pra quem quer expandir kit)
 
