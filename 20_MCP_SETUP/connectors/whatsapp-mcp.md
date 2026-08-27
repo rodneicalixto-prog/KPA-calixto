@@ -105,7 +105,7 @@ Me lista os qualificados pra eu responder.
 ```text
 Pega o relatorio de propostas enviadas no HubSpot (via Rube).
 Pra cada lead sem resposta ha +3 dias, monta mensagem de follow-up
-seguindo `15_PRODUCT_RELEASE/whatsapp/fluxos/follow-up-vendas.md`.
+seguindo o framework do `12_WHATSAPP_STACK/agents/sales-followup-bot.md`.
 Me mostra rascunho antes de enviar.
 ```
 
