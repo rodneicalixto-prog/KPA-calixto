@@ -1,8 +1,16 @@
 # Composio Rube — 1000+ apps em 1 install
 
-> **MCP mais importante do kit.** Cobre Drive, Slack, Notion, Gmail, Linear, ClickUp, X/Twitter, GitHub, Salesforce, HubSpot, Figma, Microsoft 365, e muito mais.
+> ⚠️ **Rube (rube.app) foi descontinuado pela Composio** (confirmado em 2026-08-27: `rube.app` para de resolver DNS, e o link que a Composio manda agora e `composio.dev/?utm_source=rube-deprecation&utm_campaign=shutdown`). O caminho atual e ativar o **connector Composio nativo do claude.ai** (Settings -> Connectors), nao mais `claude mcp add --transport http rube ...`. Esse connector ja aparece `Connected` automaticamente em qualquer sessao da conta, sem precisar rodar comando nenhum no terminal.
+>
+> **O que fazer agora:**
+> 1. No claude.ai (ou no app Claude Desktop), va em Settings -> Connectors.
+> 2. Ative/confirme o connector **Composio**, se ainda nao estiver ativo.
+> 3. Ele fica disponivel em qualquer sessao Claude Code/Desktop da mesma conta — nao precisa reconfigurar por projeto.
+> 4. Os nomes exatos das tools expostas por esse connector podem ser diferentes dos `RUBE_*` documentados abaixo (nao confirmados apos a migracao) — descubra rodando `Lista as ferramentas disponiveis do connector Composio` dentro do Claude Code.
+>
+> O restante deste arquivo documenta o setup **antigo** (`rube.app` direto via `claude mcp add`), mantido so como referencia historica — nao use mais.
 
-## Por que Rube primeiro
+## Por que Rube primeiro (historico — nao usar mais)
 
 - 1 instalacao = 1000+ apps disponiveis sob demanda.
 - OAuth gerenciado pela Composio (token nao vive no kit).

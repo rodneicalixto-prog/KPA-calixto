@@ -26,7 +26,7 @@ Perguntar ao mentorado:
 ```text
 Vou configurar os MCPs essenciais:
 
-1. Composio Rube (1000+ apps em 1 install) - Recomendado
+1. Composio (1000+ apps em 1 install) - Recomendado
 2. WhatsApp MCP (verygoodplugins) - se voce vende/atende via WhatsApp
 3. Filesystem MCP - acesso a pastas locais
 4. Playwright - opcional, pra auditar LPs
@@ -34,20 +34,19 @@ Vou configurar os MCPs essenciais:
 Qual ativar agora? (1, 2, 3, 4 ou TODOS)
 ```
 
-### Passo 3 — Setup Composio Rube
+### Passo 3 — Setup Composio
+
+> ⚠️ Rube (rube.app) foi descontinuado pela Composio (redireciona pra
+> `composio.dev` com UTM de shutdown). Nao usar mais `claude mcp add
+> --transport http rube ...` — o dominio nao resolve mais.
 
 Se confirmado:
 
-1. Abre https://rube.app no browser do mentorado.
-2. Espera mentorado criar conta e conectar 1-3 apps.
-3. Roda:
+1. Oriente o mentorado a ir em claude.ai (ou Claude Desktop) > Settings > Connectors.
+2. Ativar/confirmar o connector "Composio" — funciona pra qualquer sessao da conta, sem comando de terminal.
+3. Dentro do Claude: `Lista as ferramentas disponiveis do connector Composio` — confirma que funciona (os nomes exatos de tool podem diferir dos antigos `RUBE_*`).
 
-```bash
-claude mcp add --transport http rube https://rube.app/mcp
-```
-
-4. Valida: `claude mcp list` — espera ver `rube`.
-5. Dentro do Claude: `Lista 3 ferramentas Composio que estao conectadas` — confirma que funciona.
+Ver `20_MCP_SETUP/connectors/composio-rube.md` pra detalhes e historico.
 
 ### Passo 4 — Setup WhatsApp MCP
 

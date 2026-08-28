@@ -11,7 +11,7 @@ business:
   family: "agencia-servico-digital"
 preset_used: null
 tom_de_voz: "pt-BR coloquial profissional, direto e orientado a resultado"
-mcps_ativos: ["filesystem", "rube (pendente autenticação)"]
+mcps_ativos: ["filesystem", "Composio (via connector nativo do claude.ai — rube.app foi descontinuado)"]
 recommended_templates: ["10_TEMPLATES_OPERACIONAIS/cliente-template", "10_TEMPLATES_OPERACIONAIS/projeto-template", "10_TEMPLATES_OPERACIONAIS/output-template"]
 recommended_whatsapp_flows: ["12_WHATSAPP_STACK"]
 recommended_automation: "18_AUTOMATION_STACK — padronizar processo de onboarding/entrega entre clientes"
@@ -28,5 +28,5 @@ created_at: "2026-08-27"
 ## Pendências da instalação
 
 - Meta Ads CLI (`meta-ads`) instalado (Python 3.12.11 + uv + meta-ads-cli 0.2.0), mas falta preencher `META_ACCESS_TOKEN`, `META_ACT_ID`, `META_PIXEL_ID` no `.env` local.
-- MCP `rube` registrado (`claude mcp add --transport http rube https://rube.app/mcp`), mas precisa de autenticação OAuth (rodar quando usar pela primeira vez).
+- `rube.app` foi descontinuado pela Composio (confirmado em 2026-08-27, `rube.app` sem DNS + redirect da própria Composio pra `composio.dev` com UTM de shutdown). O caminho atual é ativar o connector nativo **Composio** em claude.ai/Claude Desktop → Settings → Connectors (sem comando de terminal). Ver `20_MCP_SETUP/connectors/composio-rube.md`.
 - Vault Obsidian preparado (`.obsidian/app.json` + `OBSIDIAN.md`), mas a instalação do app em si é responsabilidade do usuário, feita localmente.

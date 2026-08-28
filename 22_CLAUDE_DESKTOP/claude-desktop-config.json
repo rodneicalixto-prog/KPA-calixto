@@ -9,10 +9,8 @@
 
   "mcpServers": {
 
-    "_tier_1_composio_rube": {
-      "_description": "Composio Rube — 1000+ apps em 1 install. Cobre Drive, Slack, Notion, Gmail, Linear, HubSpot, Salesforce, etc. E um servidor HTTP remoto, nao um processo local.",
-      "type": "http",
-      "url": "https://rube.app/mcp"
+    "_tier_1_composio_DEPRECATED": {
+      "_description": "Rube (rube.app) foi descontinuado pela Composio (redireciona pra composio.dev com UTM de shutdown, confirmado em 2026-08-27). NAO adicionar aqui. Composio hoje e um connector nativo do claude.ai: Settings > Connectors > ativar 'Composio'. Funciona em qualquer sessao da conta, sem editar este arquivo. Ver 20_MCP_SETUP/connectors/composio-rube.md."
     },
 
     "_tier_1_whatsapp": {
