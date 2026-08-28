@@ -43,7 +43,7 @@ O comando:
 
 | Arquivo | O que tem |
 |---|---|
-| `connectors/composio-rube.md` | Setup rube.app + 1000 apps |
+| `connectors/composio-rube.md` | Composio (1000+ apps) — rube.app descontinuado, hoje e connector nativo do claude.ai |
 | `connectors/whatsapp-mcp.md` | verygoodplugins/whatsapp-mcp (WhatsApp Web) |
 | `connectors/google-drive.md` | Google Drive nativo (alternativa ao Rube) |
 | `connectors/slack.md` | Slack nativo (alternativa ao Rube) |

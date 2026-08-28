@@ -134,7 +134,7 @@ Pergunta ao mentorado:
 ```text
 Vou ativar conectores essenciais. Quais voce precisa? (responde com numeros, ex: 1, 2, 3)
 
-1. Composio Rube (Drive, Slack, Notion, Gmail, HubSpot, Linear, X/LinkedIn...) - RECOMENDADO
+1. Composio (Drive, Slack, Notion, Gmail, HubSpot, Linear, X/LinkedIn...) - RECOMENDADO
 2. WhatsApp (gerenciar WhatsApp Web direto) - se voce atende/vende por WhatsApp
 3. Filesystem (acesso facil a pastas locais) - util pra organizar entregas
 4. Playwright (auditar LPs e capturar screenshots) - opcional, util pra trafego
@@ -148,10 +148,17 @@ Pra cada selecionado:
 
 #### No Code
 
-```bash
-# Composio Rube
-claude mcp add --transport http rube https://rube.app/mcp
+```text
+# Composio (1)
+O Rube (rube.app) foi descontinuado pela Composio. Hoje o caminho e o
+connector nativo do claude.ai:
+1. Va em claude.ai (ou app Claude Desktop) > Settings > Connectors.
+2. Ative/confirme o connector "Composio".
+3. Ele fica disponivel em qualquer sessao da conta, sem comando de terminal.
+Ver detalhes em `20_MCP_SETUP/connectors/composio-rube.md`.
+```
 
+```bash
 # WhatsApp (precisa clone do repo)
 cd ~/mcps 2>/dev/null || mkdir -p ~/mcps && cd ~/mcps
 git clone https://github.com/verygoodplugins/whatsapp-mcp.git
@@ -180,13 +187,12 @@ Abre esse arquivo (com Notepad/TextEdit/VSCode) e cola:
 
 {
   "mcpServers": {
-    "rube": {
-      "type": "http",
-      "url": "https://rube.app/mcp"
-    },
-    [outros que voce escolheu]
+    [outros que voce escolheu — Composio nao entra mais aqui, e connector do claude.ai]
   }
 }
+
+Pro Composio: va em Settings > Connectors dentro do proprio Claude Desktop
+e ative o connector "Composio" — nao precisa editar este arquivo pra isso.
 
 Depois de salvar:
 1. Fecha o Claude Desktop totalmente
