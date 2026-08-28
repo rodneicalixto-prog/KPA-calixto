@@ -6,9 +6,9 @@
 > 1. No claude.ai (ou no app Claude Desktop), va em Settings -> Connectors.
 > 2. Ative/confirme o connector **Composio**, se ainda nao estiver ativo.
 > 3. Ele fica disponivel em qualquer sessao Claude Code/Desktop da mesma conta — nao precisa reconfigurar por projeto.
-> 4. Os nomes exatos das tools expostas por esse connector podem ser diferentes dos `RUBE_*` documentados abaixo (nao confirmados apos a migracao) — descubra rodando `Lista as ferramentas disponiveis do connector Composio` dentro do Claude Code.
+> 4. **Confirmado em uso real (2026-08-27):** o connector novo funciona por busca dinamica sobre 500+ apps via **`COMPOSIO_SEARCH_TOOLS`** (nao `RUBE_SEARCH_TOOLS`) e `COMPOSIO_MANAGE_CONNECTIONS` pra ver/gerenciar contas conectadas. Ele nao lista todas as tools de uma vez — retorna as certas conforme a tarefa que voce descrever (ex: "buscar ferramentas do Gmail pra enviar email"). Pra ver o que ja esta conectado: peca `Lista as ferramentas disponiveis do connector Composio`.
 >
-> O restante deste arquivo documenta o setup **antigo** (`rube.app` direto via `claude mcp add`), mantido so como referencia historica — nao use mais.
+> O restante deste arquivo documenta o setup **antigo** (`rube.app` direto via `claude mcp add`, comandos `RUBE_*`), mantido so como referencia historica — os comandos `RUBE_*` abaixo devem ser lidos como `COMPOSIO_*` no connector atual, mas nao foram todos confirmados 1:1.
 
 ## Por que Rube primeiro (historico — nao usar mais)
 
