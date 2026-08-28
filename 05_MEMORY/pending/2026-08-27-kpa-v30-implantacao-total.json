@@ -1,0 +1,19 @@
+{
+  "project": "KPA V30",
+  "task_id": "kpa-v30-implantacao-total-e-terra-fibra-whatsapp",
+  "title": "Instalação, implantação total do kit e mapeamento do fluxo WhatsApp da Terra Fibra",
+  "summary": "Rodado o wizard /instalar-kpa30 pra Calixto Soluções, fechados todos os gaps de implementação do kit (skills do time core, Traffic Stack, wrappers de agente/comando, docs legados) em 4 PRs mergeados, e mapeado o fluxo WhatsApp (bot NEY) da Terra Fibra pra atacar o problema de 88,89% de leads fora de área.",
+  "result": "Kit V30 com 28 wrappers .claude/agents/, 18 comandos slash reais, 10 skills kpa-* ativáveis pelo CoS, Traffic Stack com os 8 comandos do orchestrator funcionais, docs/ atualizados pro V30, e fluxo NEY (triagem cidade/bairro/CEP) em draft pronto pra teste.",
+  "worked": "Varredura de referências quebradas (script próprio) encontrou e corrigiu gaps reais: 4 tasks faltantes no Traffic Stack, sintaxe inválida de claude mcp add em 11 arquivos, MCP rube documentado errado como stdio, wrappers de agente/comando inexistentes. Meta CLI instalado (Python 3.12 + uv). Terra Fibra: fluxo WhatsApp desenhado a partir da especificação já aprovada por Rodnei (perguntar cidade/bairro/CEP), reusando copy aprovada.",
+  "failed": "Bloqueado sem acesso ao Meta Ads nesta sessão: change set aprovado (21 cidades) e auditoria dos 15 rascunhos continuam pendentes de execução manual de Rodnei na interface do Meta Ads Manager. Autenticação OAuth do MCP rube e token do Meta Ads no .env também continuam pendentes de ação do usuário.",
+  "decision": "Priorizar o fluxo WhatsApp da Terra Fibra (não-bloqueado) enquanto o acesso ao Meta está indisponível; deixar a auditoria de rascunhos e a configuração geográfica do Meta para quando Rodnei tiver acesso à interface novamente.",
+  "next_action": "Rodar os 8 cenários de teste do fluxo NEY (05_WORKSPACE/clientes/terra-fibra/whatsapp/test-cases.md), depois retomar a auditoria dos 15 rascunhos e a configuração das 21 cidades no Meta Ads Manager assim que Rodnei tiver acesso.",
+  "links": [
+    "KPA V30/Traffic Stack",
+    "KPA V30/WhatsApp Stack",
+    "KPA V30/Terra Fibra",
+    "KPA V30/Terra Fibra/WhatsApp NEY"
+  ],
+  "gate_status": "approved_with_concerns",
+  "contains_credentials": false
+}
