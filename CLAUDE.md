@@ -43,6 +43,13 @@ Se o mentorado disser "instalar kpa30", "instalar kit", "primeira vez", "comecar
 - Setup de MCPs e conectores externos fica em `20_MCP_SETUP/`.
 - Para criar novo agente, skill, task ou diretriz, use `21_BUILDER_KIT/` (Forge).
 
+## Seguranca (permanente, qualquer sessao)
+
+- Nenhum segredo (chave de API, token, senha, connection string, webhook secret) fica hardcoded em codigo, config ou markdown do kit. Regra completa: `20_MCP_SETUP/security/token-policy.md#0-regra-permanente--segredo-colado-ou-hardcoded-vira-env-na-hora`.
+- Sempre que conectar ferramenta/API/banco novo ou o mentorado colar uma chave, mover pra `.env` (gitignored) na hora, referenciar de la, e espelhar o nome (sem valor) em `.env.example`.
+- Antes de commit, checar que nada sensivel foi staged.
+- Se achar segredo ja commitado no historico, avisar exatamente qual e onde, e lembrar de rotacionar na fonte — adicionar ao `.env` agora nao desfaz um vazamento anterior.
+
 ## Qualidade
 
 - Toda entrega relevante passa por gate antes de ser considerada pronta.
