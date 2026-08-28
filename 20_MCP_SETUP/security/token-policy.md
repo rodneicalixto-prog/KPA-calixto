@@ -2,6 +2,16 @@
 
 > Regras NAO-NEGOCIAVEIS pra qualquer token de qualquer MCP.
 
+## 0. Regra permanente — segredo colado ou hardcoded vira `.env` na hora
+
+Vale pra qualquer sessao do Claude Code neste repo, sem precisar o mentorado pedir de novo:
+
+- Sempre que uma ferramenta, API, banco de dados ou servico novo for conectado, ou o mentorado colar uma chave/token/senha/connection string no chat ou em um arquivo, o valor **nunca fica hardcoded** em codigo, config ou markdown do kit.
+- Acao automatica: criar/atualizar `.env` (gitignored) com `NOME_CLARO=valor` numa linha propria; trocar o valor fixo no arquivo original por referencia a essa variavel (`os.environ["NOME_CLARO"]`, `${NOME_CLARO}` etc., conforme a linguagem/arquivo); espelhar o nome da variavel (sem valor) em `.env.example`.
+- Antes de qualquer commit, checar que nenhum segredo real foi staged (`git status` + olhar o diff, nao so confiar no `.gitignore`).
+- Se o segredo ja tiver sido commitado em algum momento do historico (checar com `git log --all -p` pro padrao da chave, ou `git log --all --diff-filter=A --name-only -- .env`), o `.env` novo **nao remove o vazamento anterior** — o token especifico precisa ser rotacionado na fonte (provedor) alem de mover pro `.env`.
+- Isso aplica em qualquer projeto/cliente que o mentorado conectar via este kit, nao so nesta instalacao especifica.
+
 ## 1. Nunca pedir token no chat
 
 Toda autenticacao = OAuth via browser. Se um MCP exigir token manual:
