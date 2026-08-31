@@ -13,7 +13,9 @@
 
 - `KPA_OBSIDIAN_VAULT` (no `.env` local) deve apontar para o caminho, **na
   máquina do usuário**, do vault Obsidian que ele já usa — nunca para a pasta
-  deste repositório.
+  deste repositório. Confirmado em 2026-08-31: `Desktop\Jarvis V8\obsidian-template`
+  (existem outros vaults com o mesmo nome em outras pastas na mesma máquina —
+  esse foi o indicado pelo usuário como o ativo).
 - `scripts/obsidian_memory_adapter.py` é o adapter de filesystem que lê/escreve
   nesse vault (busca em `02_Projects/`, `05_Knowledge/`, `06_Decisions/`,
   `08_Lessons/` por padrão — raízes compatíveis com um vault real do tipo

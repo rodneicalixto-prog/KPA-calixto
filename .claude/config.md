@@ -34,6 +34,10 @@ created_at: "2026-08-27"
   na própria máquina (`obsidian-template`, com `02_Projects`, `06_Decisions`,
   `07_Executions`, `08_Lessons`, `99_Inbox`, `Agentes/`, etc.) — **não é** o
   repositório `KPA-calixto`. `OBSIDIAN.md` foi corrigido pra deixar isso
-  claro. `KPA_OBSIDIAN_VAULT` no `.env` está vazio de propósito: falta o
-  usuário informar o caminho local exato do vault real pra qualquer
-  leitura/escrita de memória de longo prazo funcionar (`scripts/obsidian_memory_adapter.py`).
+  claro. Existem 3 vaults chamados `obsidian-template` na máquina do usuário
+  (em `Desktop\Jarvis V8\jarvis-tmp\`, `Desktop\Jarvis V8\` e
+  `Desktop\Projetos\`) mais um vault separado `Calixto Mentalidades`
+  (`OneDrive\Documentos\`) — o usuário confirmou que o vault ativo é
+  **`Desktop\Jarvis V8\obsidian-template`**, já preenchido em
+  `KPA_OBSIDIAN_VAULT` no `.env`. Esse caminho só é válido rodando localmente
+  na máquina Windows do usuário — não existe dentro deste container remoto.
