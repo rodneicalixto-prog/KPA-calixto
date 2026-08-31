@@ -26,3 +26,17 @@ Registre decisoes que afetam o rumo do projeto.
 | 2026-08-28 | Encontrados 2 achados de seguranca (chave OpenAI e chave Google Geocoding em texto plano no JSON do workflow "NEY V2", nao usam credential nativa do n8n) + 1 achado de qualidade (expressao n8n possivelmente mal fechada no no `Consultar Condomínio Oficial`) durante a leitura do workflow acima. Carregada a skill `agente-workflow` do kit (especialista real em n8n da agencia) pra formatar corretamente o runbook de correcao | O CLAUDE.md do kit exige confirmacao humana pra qualquer "API write" e a propria skill `agente-workflow` proibe alterar/ativar workflow em producao sem confirmacao do Rodnei — rotacionar chave vazada tambem so pode ser feito pelo humano no console da OpenAI/Google, nao existe API pra isso. Por isso a acao desta sessao foi documentar com precisao (sem citar nenhum valor de chave, nem parcial) e nao tentar corrigir via `COMPOSIO_REMOTE_BASH_TOOL` (que a skill confirma existir como caminho tecnico de escrita no n8n, mas exige confirmacao explicita antes de qualquer PUT em workflow ativo) | Criado `05_WORKSPACE/clientes/terra-fibra/automacoes/ney-v2-security-findings.md` com os 3 achados e runbook de correcao passo a passo; nenhuma chave foi rotacionada, vista na integra ou alterada por esta sessao — fica 100% como acao manual do usuario | Sim — e so documentacao; a correcao real (irreversivel: rotacao de chave) fica com o usuario, fora do alcance desta sessao |
 
 > Quando uma decisao for tomada com impacto no produto/projeto, anote aqui. Inclua premissa (por que decidiu assim), impacto (o que muda) e reversibilidade (consegue desfazer? como?).
+
+## 2026-08-31 — Preflight de acessos (Terra Fibra)
+
+Premissas registradas:
+- `META_ACCESS_TOKEN`/`META_ACT_ID`/`META_PIXEL_ID` seguem vazios no `.env`
+  local deste container — Meta Ads CLI não consegue autenticar aqui. Ação
+  real na campanha (pausar/editar/publicar) segue sendo manual pelo Rodnei
+  no navegador dele, com aprovação registrada em
+  `07_LOGS/terra-fibra-approvals.md`.
+- WhatsApp Terra Fibra está em `draft_mapeado_pendente_teste_e_ativacao`
+  (`current-context.md`) — nenhum disparo real pode sair sem confirmação
+  explícita.
+- Nenhuma credencial de CRM, checkout ou analytics foi mapeada pra Terra
+  Fibra até agora — fora do escopo atual (diagnóstico de tráfego + WhatsApp).
