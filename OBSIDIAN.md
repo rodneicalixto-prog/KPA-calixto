@@ -1,28 +1,36 @@
-# Usando este repositório como vault do Obsidian
+# Obsidian e o Kit V30
 
-Este repositório já pode ser aberto como um vault do Obsidian — toda a
-estrutura do kit (`00_OS/`, `04_DIRETRIZES/`, `05_WORKSPACE/`, `06_OUTPUTS/`
-etc.) é feita de arquivos Markdown com links relativos, que é exatamente
-o que o Obsidian espera de um vault.
+> **Correção (31/08/2026):** este arquivo dizia antes que o próprio repositório
+> `KPA-calixto` podia ser aberto como vault do Obsidian. Isso estava
+> incompleto/errado como orientação principal: o usuário desta instância já
+> tem um **vault real, em uso ativo**, na própria máquina (ex: `obsidian-template`),
+> com estrutura própria (`_contexto`, `02_Projects`, `06_Decisions`,
+> `07_Executions`, `08_Lessons`, `99_Inbox`, `Agentes/`, `pessoas/`, etc.) —
+> não relacionada a este repositório. O kit NUNCA deve presumir que o repo é
+> o vault; o vault é sempre externo e local ao operador.
 
-## Como abrir
+## Como o kit se conecta ao vault real
 
-1. Baixe e instale o Obsidian (https://obsidian.md) na sua máquina — isso
-   não pode ser feito remotamente, precisa ser na sua própria máquina.
-2. No Obsidian, escolha **Open folder as vault**.
-3. Selecione a pasta raiz deste repositório (`KPA-calixto`).
-4. Comece por `00_INDEX.md` — é o ponto de entrada do kit.
+- `KPA_OBSIDIAN_VAULT` (no `.env` local) deve apontar para o caminho, **na
+  máquina do usuário**, do vault Obsidian que ele já usa — nunca para a pasta
+  deste repositório.
+- `scripts/obsidian_memory_adapter.py` é o adapter de filesystem que lê/escreve
+  nesse vault (busca em `02_Projects/`, `05_Knowledge/`, `06_Decisions/`,
+  `08_Lessons/` por padrão — raízes compatíveis com um vault real do tipo
+  mostrado acima).
+- `05_MEMORY/obsidian-structure.md` documenta a estrutura recomendada de vault
+  e como mapear conceitos do kit (Cérebro 1/2/3) pra pastas existentes do
+  vault do usuário, sem forçar reorganização.
+- **Nunca presumir o caminho do vault.** Se `KPA_OBSIDIAN_VAULT` estiver vazio,
+  perguntar ao usuário o caminho local exato antes de qualquer leitura/escrita
+  de memória de longo prazo — nunca inventar ou usar o path deste repositório
+  como fallback.
 
-## O que já está preparado
+## `.obsidian/` deste repositório
 
-- `.obsidian/app.json` — config mínima padrão, só pra o Obsidian reconhecer
-  a pasta como vault sem overrides forçados. Ajuste as preferências do
-  Obsidian (tema, plugins, etc.) normalmente pela interface do app depois
-  de abrir.
-
-## O que não foi feito aqui
-
-- Nenhum plugin do Obsidian foi instalado ou configurado.
-- Nenhum conteúdo `.md` existente foi alterado por causa disso.
-- A instalação do próprio aplicativo Obsidian é responsabilidade sua, feita
-  localmente — esta sessão roda num container remoto sem interface gráfica.
+A pasta `.obsidian/app.json` (config mínima, `{}`) existe aqui só por
+compatibilidade histórica — permite que ESTE repo também seja aberto como um
+vault secundário do Obsidian, se algum dia fizer sentido (ex: um vault
+dedicado só ao kit, separado do vault pessoal do operador). **Isso não é o
+fluxo recomendado nem o padrão em uso** — o vault de memória de longo prazo do
+usuário é o externo, descrito acima.

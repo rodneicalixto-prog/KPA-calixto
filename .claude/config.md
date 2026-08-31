@@ -27,7 +27,13 @@ created_at: "2026-08-27"
 
 ## Pendências da instalação
 
-- `.env` local recriado em 2026-08-31 (não existia neste container — provavelmente perdido entre sessões, já que está no `.gitignore` por segurança). `OPERATOR_NAME`, `OPERATOR_BRAND` e `KPA_OBSIDIAN_VAULT` já preenchidos automaticamente (dados não sensíveis).
+- `.env` local recriado em 2026-08-31 (não existia neste container — provavelmente perdido entre sessões, já que está no `.gitignore` por segurança). `OPERATOR_NAME` e `OPERATOR_BRAND` preenchidos automaticamente (dados não sensíveis).
 - Meta Ads CLI (`meta-ads`) instalado (Python 3.12.11 + uv + meta-ads-cli 0.2.0), mas falta preencher `META_ACCESS_TOKEN`, `META_ACT_ID`, `META_PIXEL_ID` no `.env` local — isso é feito pelo próprio usuário via `/meta-cli-install` (fluxo OAuth), nunca colado no chat.
 - `rube.app` foi descontinuado pela Composio (confirmado em 2026-08-27, `rube.app` sem DNS + redirect da própria Composio pra `composio.dev` com UTM de shutdown). O caminho atual é ativar o connector nativo **Composio** em claude.ai/Claude Desktop → Settings → Connectors (sem comando de terminal). Ver `20_MCP_SETUP/connectors/composio-rube.md`.
-- Vault Obsidian preparado (`.obsidian/app.json` + `OBSIDIAN.md`), mas a instalação do app em si é responsabilidade do usuário, feita localmente.
+- **Correção 2026-08-31:** o usuário já tem um vault Obsidian real e em uso
+  na própria máquina (`obsidian-template`, com `02_Projects`, `06_Decisions`,
+  `07_Executions`, `08_Lessons`, `99_Inbox`, `Agentes/`, etc.) — **não é** o
+  repositório `KPA-calixto`. `OBSIDIAN.md` foi corrigido pra deixar isso
+  claro. `KPA_OBSIDIAN_VAULT` no `.env` está vazio de propósito: falta o
+  usuário informar o caminho local exato do vault real pra qualquer
+  leitura/escrita de memória de longo prazo funcionar (`scripts/obsidian_memory_adapter.py`).
