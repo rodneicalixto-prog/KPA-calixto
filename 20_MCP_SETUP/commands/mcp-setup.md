@@ -114,7 +114,7 @@ Pede mentorado fechar e abrir Claude Code (pra carregar MCPs novos).
 Roda 3 testes dentro do Claude Code:
 
 ```text
-1. RUBE_SEARCH_TOOLS "send email"     → confirma Rube conectado
+1. COMPOSIO_SEARCH_TOOLS "send email" → confirma Composio conectado
 2. whatsapp_list_chats                → confirma WhatsApp (se ativado)
 3. Lista arquivos em /pasta-do-kit    → confirma Filesystem
 ```
@@ -125,7 +125,7 @@ Mostra ao mentorado:
 
 ```text
 MCPs instalados:
-- rube (Composio) ✓
+- Composio ✓
 - whatsapp ✓
 - filesystem ✓
 

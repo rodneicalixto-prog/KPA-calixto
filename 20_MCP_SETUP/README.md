@@ -4,7 +4,7 @@ Stack de **MCPs (Model Context Protocol)** recomendados pro Kit V30. Cada conect
 
 ## Filosofia
 
-- **Composio Rube primeiro.** Cobre 1000+ apps com 1 instalacao. Use sempre que possivel antes de adicionar MCP nativo.
+- **Connector Composio primeiro.** Cobre 500+ apps via connector nativo do Claude. Use sempre que possivel antes de adicionar MCP nativo.
 - **MCP nativo so quando faz diferenca.** WhatsApp Web (verygoodplugins), Playwright (browser), Filesystem nativo — sao casos onde MCP especifico ganha.
 - **Token nunca no kit.** Toda credencial vive no `.env` local OU no provedor (Composio gerencia OAuth).
 - **Confirmacao antes de qualquer escrita real.** Read-only = OK rodar full-auto. Write/delete/post/disparo = pede confirmacao humana.
@@ -28,7 +28,7 @@ O comando:
 
 | Tier | MCP | Por que |
 |---|---|---|
-| 1 | **Composio Rube** | 1000+ apps em 1 install. Cobre Drive, Slack, Notion, Gmail, Linear, ClickUp, X/Twitter, GitHub, Salesforce, HubSpot, Figma, Microsoft 365 |
+| 1 | **Composio** | 500+ apps via connector nativo do Claude. Cobre Drive, Slack, Notion, Gmail, Linear, ClickUp, X/Twitter, GitHub, Salesforce, HubSpot, Figma, Microsoft 365 |
 | 1 | **WhatsApp MCP** (verygoodplugins) | WhatsApp Web nativo — leitura e envio de mensagens |
 | 1 | **Meta Ads CLI** | Ja coberto por `/meta-cli-install` — nao precisa MCP separado |
 | 1 | **Filesystem** | Acesso a pastas locais sem permissao repetida |
@@ -45,11 +45,11 @@ O comando:
 |---|---|
 | `connectors/composio-rube.md` | Composio (1000+ apps) — rube.app descontinuado, hoje e connector nativo do claude.ai |
 | `connectors/whatsapp-mcp.md` | verygoodplugins/whatsapp-mcp (WhatsApp Web) |
-| `connectors/google-drive.md` | Google Drive nativo (alternativa ao Rube) |
-| `connectors/slack.md` | Slack nativo (alternativa ao Rube) |
-| `connectors/gmail.md` | Gmail (via Rube ou nativo) |
-| `connectors/notion.md` | Notion (via Rube) |
-| `connectors/meta-ads.md` | Meta Ads (Facebook/Instagram via Rube ou CLI nativo) |
+| `connectors/google-drive.md` | Google Drive nativo (alternativa ao Composio) |
+| `connectors/slack.md` | Slack nativo (alternativa ao Composio) |
+| `connectors/gmail.md` | Gmail (via Composio ou nativo) |
+| `connectors/notion.md` | Notion (via Composio) |
+| `connectors/meta-ads.md` | Meta Ads (Facebook/Instagram via Composio ou CLI nativo) |
 | `connectors/google-ads.md` | Critérios e teste de aceitação para Google Ads somente leitura |
 | `connectors/playwright.md` | Playwright browser |
 | `connectors/firecrawl.md` | Firecrawl scraper |
