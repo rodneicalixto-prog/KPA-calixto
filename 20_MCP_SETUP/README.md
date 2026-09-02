@@ -36,6 +36,7 @@ O comando:
 | 2 | **Firecrawl** ou **Exa** | Scraping/research de concorrentes |
 | 2 | **Google Ads (read-only)** | Coleta validada para diagnóstico; ativar apenas quando houver cliente e acesso |
 | 2 | **Context7** | Docs de bibliotecas atualizadas |
+| 2 | **MarkItDown** | Converte PDF/Word/Excel/imagem/audio de briefing do mentorado pra Markdown legivel |
 | 3 | **GitHub** | Versionar projetos do mentorado |
 | 3 | **Sequential Thinking** | Raciocinio passo-a-passo pra tasks complexas |
 
@@ -55,6 +56,7 @@ O comando:
 | `connectors/firecrawl.md` | Firecrawl scraper |
 | `connectors/github.md` | GitHub MCP |
 | `connectors/filesystem.md` | Filesystem MCP nativo |
+| `connectors/markitdown.md` | MarkItDown (fork rodneicalixto-prog) — converte documentos pra Markdown |
 
 ## Seguranca
 
