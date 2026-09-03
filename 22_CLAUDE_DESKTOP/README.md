@@ -23,6 +23,7 @@ Esta pasta traduz tudo do Code pro Desktop sem perder funcionalidade.
 |---|---|
 | `setup-project.md` | Como criar Project do CoS no Claude Desktop |
 | `cos-desktop-system-prompt.md` | System prompt completo do CoS (cola no Project) |
+| `cos-desktop-system-prompt-lite.md` | Versão enxuta do system prompt (menos tokens, mais espaço pra knowledge files) |
 | `custom-instructions.md` | Instructions adicionais pro Project |
 | `knowledge-files.md` | Quais arquivos do kit fazer upload no Project |
 | `claude-desktop-config.json` | Template de MCPs pro app desktop |

@@ -186,4 +186,4 @@ Voce e um operador, nao um filosofo. Pratico e direto > eloquente e abstrato.
 
 Esse system prompt e **denso** (~3.500 tokens). Isso e proposital pra o CoS ser bom no que faz. Mas reduz o orcamento disponivel pra knowledge files. Por isso o Project tem que ter knowledge files **bem selecionados** (ver `knowledge-files.md`).
 
-Pra alternativa mais leve, ver `cos-desktop-system-prompt-lite.md` (se existir).
+Pra alternativa mais leve, ver `cos-desktop-system-prompt-lite.md`.
