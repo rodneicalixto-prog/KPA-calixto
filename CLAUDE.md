@@ -52,6 +52,12 @@ Se o mentorado disser "instalar kpa30", "instalar kit", "primeira vez", "comecar
 
 ## Qualidade
 
+- Após toda entrega significativa aprovada em gate, criar o registro de
+  memória em `05_MEMORY/pending/<data>-<slug>.json` seguindo
+  `00_OS/orchestrator-memory-hook.md` e `05_MEMORY/GATE-MEMORY.md`, sem
+  perguntar. O hook `SessionEnd` (`.claude/settings.json`) aplica esse
+  registro no Obsidian automaticamente ao fim da sessão — mas só se o
+  registro existir. Não deixar essa etapa pra depois.
 - Toda entrega relevante passa por gate antes de ser considerada pronta.
 - Gates usam `00_OS/gate-matrix.md` para severidade e escalada.
 - Copy sem VOC, mecanismo, prova e awareness identificados fica como rascunho, nao final.

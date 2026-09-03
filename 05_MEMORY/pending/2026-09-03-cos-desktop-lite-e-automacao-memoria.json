@@ -1,0 +1,18 @@
+{
+  "project": "KPA V30",
+  "task_id": "cos-desktop-lite-e-automacao-memoria",
+  "title": "System prompt lite do CoS Desktop, revisão de bugs (Codex) e automação da escrita de memória Obsidian",
+  "summary": "Criado 22_CLAUDE_DESKTOP/cos-desktop-system-prompt-lite.md (versão enxuta do CoS Desktop, ~40% menor) via PR #23, corrigidos 5 achados de review automático do Codex (fence markdown quebrado, gate de impersonation cortado, wizard fora da lista de upload, Composio Rube descontinuado, roteamento de meta ads), e depois automatizada a escrita de memória Obsidian que hoje dependia de alguém lembrar de rodar o comando manualmente.",
+  "result": "PR #23 mergeado no KPA-calixto com o system prompt lite e as correções. Dois registros antigos (26 e 27/08) finalmente aplicados no vault Obsidian do usuário depois de ficarem semanas pendentes. Criado scripts/apply_pending_memory.py (aplica todos os pendentes de uma vez, move pra 05_MEMORY/applied/, idempotente) e .claude/settings.json com hook SessionEnd que roda isso automaticamente ao fim de cada sessão local.",
+  "worked": "O review automático do Codex no PR pegou 3 bugs P1 reais (fence de 3 crases fechando o bloco colável cedo demais — mesmo bug existia no arquivo completo, não só no lite; gate 'bot nao finge ser humano' cortado da versão lite; wizard instalar-kpa30.md nunca esteve na lista de upload do Project) — todos verificados contra a fonte antes de corrigir, não aceitos às cegas. A automação da memória testada de ponta a ponta contra um vault fake antes de mexer no real.",
+  "failed": "O hook SessionEnd com fallback 'python3 || python' ainda não foi testado de fato no Windows do usuário — não dá pra confirmar daqui se o shell que o Claude Code usa lá entende esse fallback. Fica como verificação pendente pro próprio usuário.",
+  "decision": "Não criar heurística de hook Stop pra forçar criação de registro de memória (risco de virar ruído em toda resposta trivial) — em vez disso, tornar isso uma instrução explícita e sempre-carregada no CLAUDE.md (seção Qualidade), separando claramente as duas metades do problema: criar o registro (agente, via instrução) e aplicar no vault (script, via hook).",
+  "next_action": "Usuário precisa: (1) dar git pull nesse repo local pra pegar .claude/settings.json e o script novo; (2) testar o hook fechando/abrindo uma sessão do Claude Code local na pasta do kit e confirmar que o SessionEnd dispara no Windows; (3) aplicar este próprio registro (2026-09-03-cos-desktop-lite-e-automacao-memoria.json) rodando o script ou deixando o hook fazer isso automaticamente.",
+  "links": [
+    "KPA V30/22_CLAUDE_DESKTOP",
+    "KPA V30/05_MEMORY",
+    "megacrm/PR #46 whatsapp-inbound typecheck"
+  ],
+  "gate_status": "approved_with_concerns",
+  "contains_credentials": false
+}
