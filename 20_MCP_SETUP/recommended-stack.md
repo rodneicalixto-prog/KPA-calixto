@@ -9,6 +9,7 @@
 | Composio | Drive, Gmail, Calendar, Notion, Slack, Linear, ClickUp |
 | Filesystem | Pastas locais do projeto |
 | Playwright | Auditar LP, screenshots, testar fluxo |
+| MarkItDown | Ler PDF/Word/Excel/imagem de briefing do mentorado |
 
 ### Trafego pago (Meta/Google)
 
@@ -65,5 +66,6 @@
 | Playwright | gratis |
 | Firecrawl | freemium, ~$20-50/mes |
 | GitHub MCP | gratis pra repos publicos |
+| MarkItDown | gratis (open source) |
 
 Estimativa pra mentorado tipico: **$0-70/mes** alem do Claude Code.
