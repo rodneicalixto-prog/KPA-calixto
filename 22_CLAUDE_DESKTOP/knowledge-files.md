@@ -4,48 +4,49 @@
 
 ## Project 1: CoS V30 (geral)
 
-### Tier 1 — Obrigatorios (10 arquivos)
+### Tier 1 — Obrigatorios (11 arquivos)
 
 | # | Arquivo | Por que |
 |---|---|---|
 | 1 | `00_INDEX.md` | Indice mestre |
 | 2 | `00_OS/cos.md` | Definicao do CoS |
-| 3 | `00_OS/router.md` | Roteamento |
-| 4 | `00_OS/gates.md` | Gates de qualidade |
-| 5 | `00_OS/access-preflight.md` | Preflight de acessos |
-| 6 | `00_OS/proactivity-policy.md` | Politica full-auto |
-| 7 | `15_PRODUCT_RELEASE/COMECE_AQUI.md` | CoS publico V30 |
-| 8 | `nichos/family-classifier.md` | 8 familias operacionais |
-| 9 | `nichos/setup-nicho-playbook.md` | Setup adaptativo |
-| 10 | `13_ADAPTIVE_SQUADS/README.md` | Squads adaptativos |
+| 3 | `00_OS/commands/instalar-kpa30.md` | Wizard de instalacao completo — ambos os system prompts Desktop (`cos-desktop-system-prompt.md`/`-lite.md`) roteiam a primeira conversa pra ele; sem upload aqui, o Project nao tem acesso ao conteudo |
+| 4 | `00_OS/router.md` | Roteamento |
+| 5 | `00_OS/gates.md` | Gates de qualidade |
+| 6 | `00_OS/access-preflight.md` | Preflight de acessos |
+| 7 | `00_OS/proactivity-policy.md` | Politica full-auto |
+| 8 | `15_PRODUCT_RELEASE/COMECE_AQUI.md` | CoS publico V30 |
+| 9 | `nichos/family-classifier.md` | 8 familias operacionais |
+| 10 | `nichos/setup-nicho-playbook.md` | Setup adaptativo |
+| 11 | `13_ADAPTIVE_SQUADS/README.md` | Squads adaptativos |
 
 ### Tier 2 — Recomendados (8 arquivos)
 
 | # | Arquivo | Por que |
 |---|---|---|
-| 11 | `02_AGENTS/README.md` | Mapa de agentes |
-| 12 | `04_DIRETRIZES/copy-goat-lite.md` | Copy framework |
-| 13 | `04_DIRETRIZES/voz-ptbr.md` | Voz humana |
-| 14 | `04_DIRETRIZES/pesquisa-voc.md` | VOC |
-| 15 | `20_MCP_SETUP/README.md` | MCPs disponiveis |
-| 16 | `20_MCP_SETUP/recommended-stack.md` | Stack por uso |
-| 17 | `21_BUILDER_KIT/README.md` | Forge agent |
-| 18 | `15_PRODUCT_RELEASE/GUIA_DE_USO.md` | Como pedir a primeira entrega |
+| 12 | `02_AGENTS/README.md` | Mapa de agentes |
+| 13 | `04_DIRETRIZES/copy-goat-lite.md` | Copy framework |
+| 14 | `04_DIRETRIZES/voz-ptbr.md` | Voz humana |
+| 15 | `04_DIRETRIZES/pesquisa-voc.md` | VOC |
+| 16 | `20_MCP_SETUP/README.md` | MCPs disponiveis |
+| 17 | `20_MCP_SETUP/recommended-stack.md` | Stack por uso |
+| 18 | `21_BUILDER_KIT/README.md` | Forge agent |
+| 19 | `15_PRODUCT_RELEASE/GUIA_DE_USO.md` | Como pedir a primeira entrega |
 
 ### Tier 2b — Skills do time core (adicionadas na instalacao)
 
 | # | Arquivo | Por que |
 |---|---|---|
-| 19 | `02_AGENTS/skills/kpa-cos/SKILL.md` | Entry point de qualquer pedido |
-| 20 | `02_AGENTS/skills/kpa-strategist/SKILL.md` | Tese/mecanismo antes de copy |
-| 21 | `02_AGENTS/skills/kpa-researcher/SKILL.md` | VOC antes de estrategia |
-| 22 | `02_AGENTS/skills/kpa-copy-director/SKILL.md` | Copy a partir de estrategia aprovada |
-| 23 | `02_AGENTS/skills/kpa-production-lead/SKILL.md` | Copy aprovada -> assets |
-| 24 | `02_AGENTS/skills/kpa-traffic-analyst/SKILL.md` | Launch review e operacao semanal |
-| 25 | `02_AGENTS/skills/kpa-product-auditor/SKILL.md` | Promessa da LP vs entrega real |
-| 26 | `02_AGENTS/skills/kpa-qa-editor/SKILL.md` | Gate antes de qualquer entrega final |
-| 27 | `02_AGENTS/skills/kpa-orchestrator/SKILL.md` | Pipeline completo (funil/lancamento) |
-| 28 | `02_AGENTS/skills/kpa-memory-curator/SKILL.md` | Curadoria de memoria/Obsidian |
+| 20 | `02_AGENTS/skills/kpa-cos/SKILL.md` | Entry point de qualquer pedido |
+| 21 | `02_AGENTS/skills/kpa-strategist/SKILL.md` | Tese/mecanismo antes de copy |
+| 22 | `02_AGENTS/skills/kpa-researcher/SKILL.md` | VOC antes de estrategia |
+| 23 | `02_AGENTS/skills/kpa-copy-director/SKILL.md` | Copy a partir de estrategia aprovada |
+| 24 | `02_AGENTS/skills/kpa-production-lead/SKILL.md` | Copy aprovada -> assets |
+| 25 | `02_AGENTS/skills/kpa-traffic-analyst/SKILL.md` | Launch review e operacao semanal |
+| 26 | `02_AGENTS/skills/kpa-product-auditor/SKILL.md` | Promessa da LP vs entrega real |
+| 27 | `02_AGENTS/skills/kpa-qa-editor/SKILL.md` | Gate antes de qualquer entrega final |
+| 28 | `02_AGENTS/skills/kpa-orchestrator/SKILL.md` | Pipeline completo (funil/lancamento) |
+| 29 | `02_AGENTS/skills/kpa-memory-curator/SKILL.md` | Curadoria de memoria/Obsidian |
 
 ### Tier 3 — Opcionais (use os que sobrarem)
 
